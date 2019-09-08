@@ -42,4 +42,9 @@ class Category extends BaseModel
 
         return parent::base_update($this->request);
     }
+
+    public function types()
+    {
+        return $this->belongsTo(Type::class, 'type_id', 'type_id');
+    }
 }

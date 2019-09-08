@@ -44,33 +44,32 @@ class AuthorController extends Controller
         $this->config($config);
         $data = $this->model->web_insert($this->request);
         // dd($data);
-        return redirect('tac_gia')->with('success', 'Added Successfully');
+        return redirect('author/index')->with('success', 'Added Successfully');
     }
 
-    public function edit($academy_id)
+    public function edit($author_id)
     {
-        $academy = Academy::findOrFail($academy_id);
+        $academy = Author::findOrFail($author_id);
 
-        return view('pages.admins.academy.edit', compact('academy', 'academy_id'));
+        return view('pages.admins.authors.edit', compact('author', 'author_id'));
     }
 
-    public function update(Request $request, $academy_id)
+    public function update(Request $request, $author_id)
     {
-        $academy = Academy::find($academy_id);
+        $author = Author::find($author_id);
         //TODO:  Nhan du lieu tu form cu
-        $academy->academy_code = $request->get('academy_code');
-        $academy->academy_name = $request->get('academy_name');
-        $academy->academy_description = $request->get('academy_description');
-        $academy->save();
+        $author->author_name = $request->get('author_name');
+        $author->author_info = $request->get('author_info');
+        $author->save();
         // dd($academy);
-        return redirect('khoa-vien')->with('success', 'Updated Successfully');
+        return redirect('author')->with('success', 'Updated Successfully');
     }
 
-    public function destroy($academy_id)
+    public function destroy($author_id)
     {
-        $data = Academy::findOrFail($academy_id);
+        $data = Author::findOrFail($author_id);
         $data->delete();
         // dd($data);
-        return redirect('khoa-vien')->with('success', 'Deleted Successfully!');
+        return redirect('author')->with('success', 'Deleted Successfully!');
     }
 }
