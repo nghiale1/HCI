@@ -31,8 +31,8 @@ class BookController extends Controller
     // Hàm chỉ thực hiện đỗ ra trang Thêm
     public function create_render(Request $request)
     {
-        return 'qư';
-        dd($request);
+        // return 'qư';
+        // dd($request);
 
         return view('pages.admins.books.create');
     }

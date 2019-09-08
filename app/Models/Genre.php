@@ -42,4 +42,9 @@ class Genre extends BaseModel
 
         return parent::base_update($this->request);
     }
+
+    public function categories()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'category_id');
+    }
 }

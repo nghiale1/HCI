@@ -25,7 +25,3 @@
 </div>
 
 @endsection
-@section('js')
-<script src="{{ asset('public/ckeditor/ckeditor.js') }}"></script>
-<script> CKEDITOR.replace('editor1'); </script>
-@endsection
