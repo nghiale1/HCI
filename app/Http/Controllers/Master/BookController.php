@@ -4,7 +4,15 @@ namespace App\Http\Controllers\Master;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Sale;
 use App\Models\Book;
+use App\Models\Author;
+use App\Models\BookCompany;
+use App\Models\PublishingHouse;
+use App\Models\Tranlator;
+use App\Models\Type;
+use App\Models\Category;
+use App\Models\Genre;
 
 class BookController extends Controller
 {
@@ -31,22 +39,40 @@ class BookController extends Controller
     // Hàm chỉ thực hiện đỗ ra trang Thêm
     public function create_render(Request $request)
     {
-        // return 'qư';
-        // dd($request);
+        $author = Author::all();
+        $book_company = BookCompany::all();
+        $publishing_house = PublishingHouse::all();
+        $tranlator = Tranlator::all();
+        $type = Type::all();
+        $category = Category::all();
+        $genre = Genre::all();
 
-        return view('pages.admins.books.create');
+        return view('pages.admins.books.create', compact('author', 'book_company', 'publishing_house', 'tranlator', 'type', 'category', 'genre'));
     }
 
     // Hàm chỉ thực hiện chức năng Thêm thông qua Method = POST
     public function create_submit(Request $request)
     {
-        $config = [
-            'model' => new Book(),
-            'request' => $request,
-        ];
-        $this->config($config);
-        $data = $this->model->web_insert($this->request);
-        // dd($data);
+        $sale_id = Sale::insertGetId(
+            array('sale_price' => $request->get('sale_price'))
+            );
+
+        Book::insert([
+        'book_title' => $request->get('book_title'),
+        'book_description' => $request->get('book_description'),
+        'book_price' => $request->get('book_price'),
+        'book_releasedate' => $request->get('book_releasedate'),
+        'book_form' => $request->get('book_form'),
+        'book_pagenumber' => $request->get('book_pagenumber'),
+        'book_size' => $request->get('book_size'),
+        'book_weight' => $request->get('book_weight'),
+        'author_id' => $request->get('author_id'),
+        'tranlator_id' => $request->get('tranlator_id'),
+        'publishing_house_id' => $request->get('publishing_house_id'),
+        'book_company_id' => $request->get('book_company_id'),
+        'sale_id' => $sale_id,
+        ]);
+
         return redirect('book')->with('success', 'Added Successfully');
     }
 

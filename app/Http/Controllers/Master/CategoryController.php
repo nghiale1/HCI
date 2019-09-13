@@ -29,15 +29,15 @@ class CategoryController extends Controller
     }
 
     // TODO: Mỗi function chỉ thực hiện 1 nhiệm vụ. Cho người khác dễ sửa chửa code của mình.
-    public function create_render($type_id)
+    public function add_render($type_id)
     {
         $type = Type::where('type_id', $type_id)->first();
 
-        return view('pages.admins.categories.create', compact('type'));
+        return view('pages.admins.categories.add', compact('type'));
     }
 
     // Hàm chỉ thực hiện chức năng Thêm thông qua Method = POST
-    public function create_submit(Request $request)
+    public function add_submit(Request $request)
     {
         $category = Category::insert([
             'type_id' => $request->query('type'),
@@ -47,14 +47,14 @@ class CategoryController extends Controller
         return redirect('category')->with('success', 'Added Successfully');
     }
 
-    public function create_render_view(Request $request)
+    public function create_render(Request $request)
     {
         $type = Type::all();
 
-        return view('pages.admins.categories.create_view', compact('type'));
+        return view('pages.admins.categories.create', compact('type'));
     }
 
-    public function create_submit_view(Request $request)
+    public function create_submit(Request $request)
     {
         $config = [
             'model' => new Category(),
