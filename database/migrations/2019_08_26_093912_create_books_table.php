@@ -19,10 +19,10 @@ class CreateBooksTable extends Migration
                 $table->float('book_price', 8, 2)->commnent('giá');
                 $table->string('book_releasedate', 50)->comment('ngày phát hành');
                 $table->string('book_form', 45)->comment('kiểu bìa sách');
-                $table->integer('book_numberpage')->unsigned()->comment('số trang sách');
+                $table->integer('book_pagenumber')->unsigned()->comment('số trang sách');
                 $table->string('book_size', 50)->comment('kích cỡ sách');
                 $table->string('book_weight', 50)->comment('trọng lượng sách');
-                $table->integer('tranlator_id')->unsigned()->index()->comment('FK id dịch giả');
+                $table->integer('tranlator_id')->nullable()->unsigned()->index()->comment('FK id dịch giả');
                 $table->integer('author_id')->unsigned()->index()->comment('FK id tác giả');
                 $table->integer('publishing_house_id')->unsigned()->index()->comment('FK id nhà xuất bản');
                 $table->integer('book_company_id')->unsigned()->index()->comment('FK id cty sách');
