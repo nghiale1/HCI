@@ -20,7 +20,7 @@ class Book extends BaseModel
         'book_price',
         'book_releasedate',
         'book_form',
-        'book_numberpage',
+        'book_pagenumber',
         'book_size',
         'book_weight',
         'tranlator_id',
@@ -52,5 +52,35 @@ class Book extends BaseModel
         ];
 
         return parent::base_update($this->request);
+    }
+
+    public function authors()
+    {
+        return $this->belongsTo(Author::class, 'author_id', 'author_id');
+    }
+
+    public function tranlators()
+    {
+        return $this->belongsTo(Tranlator::class, 'tranlator_id', 'tranlator_id');
+    }
+
+    public function publishing_houses()
+    {
+        return $this->belongsTo(PublishingHouse::class, 'publishing_house_id', 'publishing_house_id');
+    }
+
+    public function book_companies()
+    {
+        return $this->belongsTo(BookCompany::class, 'book_company_id', 'book_company_id');
+    }
+
+    public function sales()
+    {
+        return $this->hasOne(Sale::class, 'sale_id', 'sale_id');
+    }
+
+    public function genres()
+    {
+        return $this->belongsToMany(Genre::class, 'genre_books', 'book_id', 'genre_id');
     }
 }
