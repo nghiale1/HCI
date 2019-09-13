@@ -37,7 +37,7 @@
 <script src="{{asset('/dist/js/demo.js')}}"></script>
 {{-- CKEditor --}}
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-<script> CKEDITOR.replace( 'editor1', {
+<script> CKEDITOR.replace( 'book_description', {
    filebrowserBrowseUrl: '{{ asset('ckfinder/ckfinder.html') }}',
         filebrowserImageBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Images') }}',
         filebrowserFlashBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Flash') }}',

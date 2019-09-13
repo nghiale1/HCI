@@ -6,7 +6,7 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel">
       <div class="pull-left image">
-      <img src="{{asset('/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+      <img src="{{asset('/dist/img/nghia.jpg')}}" class="img-circle" alt="User Image">
       </div>
       <div class="pull-left info">
         <p>Lê Minh Nghĩa</p>
@@ -40,6 +40,7 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="{{route('author.index')}}">Tác giả</a></li>
+          <li><a href="{{route('tranlator.index')}}">Dịch giả</a></li>
           <li><a href="{{route('bookcompany.index')}}">Công ty phát hành</a></li>
           <li><a href="{{route('publishinghouse.index')}}">Nhà xuất bản</a></li>
           <li><a href="{{route('type.index')}}">Loại sách</a></li>
@@ -48,7 +49,7 @@
         </ul>
       </li>
 
-      <li><a href="#"><i class="fa fa-link"></i> <span>Sách</span></a></li>
+      <li><a href="{{route('book.index')}}"><i class="fa fa-link"></i> <span>Sách</span></a></li>
       
     </ul>
     <!-- /.sidebar-menu -->
