@@ -3,30 +3,29 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-6">
-                <h3 class="box-title">Category Table</h3>
+                <h3 class="box-title">Tranlator Table</h3>
+                <br>
+                <a href="{{route('tranlator.create')}}" class="btn btn-success waves-effect waves-light m-r-10">Thêm dịch giả</a>
                 <br>
                 <br>
-                <a href="{{route('category.create')}}" class="btn btn-success waves-effect waves-light m-r-10">Thêm hạng mục sách</a>
-
                 <br>
                 <div class="table-responsive">
                     <table class="table color-table primary-table">
                         <thead>
                             <tr>
-                                <th>Hạng mục sách:</th>
-                                <th>Loại sách:</th>
+                                <th>Tên dịch giả:</th>
+                                <th>Thông tin dịch giả:</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($data as $item)
                                 <tr>
-                                    <td>{{$item['category_name']}}</td>
-                                    <td>{{$item->types['type_name']}}</td>
+                                    <td>{{$item['tranlator_name']}}</td>
+                                    <td>{{$item['tranlator_info']}}</td>
                                     <td>
-                                        <form action="{{ route('category.destroy', $item->category_id) }}" method="post" class="delete_form">
-                                            <a href="{{ action('Master\GenreController@create_render',$item['category_id'] )}}" class="btn btn-success">Create Genre</a>
-                                            <a href="{{ action('Master\CategoryController@edit',$item->category_id) }}" class="btn btn-warning">Edit</a>
+                                        <form action="{{ route('tranlator.destroy', $item->tranlator_id) }}" method="post" class="delete_form">
+                                            <a href="{{ action('Master\TranlatorController@edit',$item->tranlator_id) }}" class="btn btn-warning">Edit</a>
                                             @csrf
                                             <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>

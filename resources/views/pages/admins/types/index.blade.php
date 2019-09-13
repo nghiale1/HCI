@@ -13,9 +13,6 @@
                             <input type="text" name="type_name" id="type_name" />
 
                             <button class="btn btn-success" type="submit">Submit</button>
-                        
-        
-                        
                 </form>
                 <br>
                 <br>
@@ -34,7 +31,7 @@
                                     <td>{{$item['type_name']}}</td>
                                     <td>
                                         <form action="{{ route('type.destroy', $item->type_id) }}" method="post" class="delete_form">
-                                            <a href="{{ action('Master\CategoryController@create_render',$item->type_id) }}" class="btn btn-warning">Create Category</a>
+                                            <a href="{{ action('Master\CategoryController@add_render',$item->type_id) }}" class="btn btn-success">Add Category</a>
                                             <a href="{{ action('Master\BookCompanyController@edit',$item->type_id) }}" class="btn btn-warning">Edit</a>
                                             @csrf
                                             <button type="submit" class="btn btn-danger">Delete</button>

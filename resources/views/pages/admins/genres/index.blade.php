@@ -6,7 +6,7 @@
                 <h3 class="box-title">Genre Table</h3>
                 <br>
                 <br>
-                <a href="{{route('genre.create.direct')}}" class="btn btn-success waves-effect waves-light m-r-10">Thêm thể loại nghệ thuật</a>
+                <a href="{{route('genre.create')}}" class="btn btn-success waves-effect waves-light m-r-10">Thêm thể loại nghệ thuật</a>
 
                 <br>
                 <div class="table-responsive">

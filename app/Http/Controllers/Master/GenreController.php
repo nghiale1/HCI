@@ -29,16 +29,16 @@ class GenreController extends Controller
     }
 
     // TODO: Mỗi function chỉ thực hiện 1 nhiệm vụ. Cho người khác dễ sửa chửa code của mình.
-    public function create_render($category_id)
+    public function add_render($category_id)
     {
         // dd($category_id);
         $category = Category::where('category_id', $category_id)->first();
 
-        return view('pages.admins.genres.create', compact('category'));
+        return view('pages.admins.genres.add', compact('category'));
     }
 
     // Hàm chỉ thực hiện chức năng Thêm thông qua Method = POST
-    public function create_submit(Request $request)
+    public function add_submit(Request $request)
     {
         $genre = Genre::insert([
             'category_id' => $request->query('category'),
@@ -48,14 +48,14 @@ class GenreController extends Controller
         return redirect('genre')->with('success', 'Added Successfully');
     }
 
-    public function create_render_direct(Request $request)
+    public function create_render(Request $request)
     {
         $category = Category::all();
 
-        return view('pages.admins.genres.create_direct', compact('category'));
+        return view('pages.admins.genres.create', compact('category'));
     }
 
-    public function create_submit_direct(Request $request)
+    public function create_submit(Request $request)
     {
         $config = [
             'model' => new Genre(),

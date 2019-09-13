@@ -10,31 +10,21 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-// Route::get('/book', function () {
-//     return view('pages.admins.books.index');
-// });
-// route::get('books/create', function () {
-//     return view('pages.admins.books.create');
-// });
+
 Route::get('/', function () {
     return view('pages.admins.books.index');
-    // Route::get('/create', "Master\BookController@create_render")->name('book.create');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-    // Route::get('/', "Master\BookController@index")->name('book/index');
 Route::group(['prefix' => 'author'], function () {
     Route::get('/', "Master\AuthorController@index")->name('author/index');
 
     Route::get('/create', "Master\AuthorController@create_render")->name('author/create');
     Route::post('/create', "Master\AuthorController@create_submit")->name('author/create/submit');
 });
+//Tác giả
 Route::prefix('author')->group(function () {
     Route::get('/', "Master\AuthorController@index")->name('author.index');
     //CREATE
@@ -46,6 +36,7 @@ Route::prefix('author')->group(function () {
     // DELETE
     Route::post('/destroy/{author_id}', 'Master\AuthorController@destroy')->name('author.destroy');
 });
+//Nhà phát hành
 Route::prefix('bookcompany')->group(function () {
     Route::get('/', "Master\BookCompanyController@index")->name('bookcompany.index');
     //CREATE
@@ -56,6 +47,7 @@ Route::prefix('bookcompany')->group(function () {
     // DELETE
     Route::post('/destroy/{book_company_id}', 'Master\BookCompanyController@destroy')->name('bookcompany.destroy');
 });
+//Nhà xuất bản
 Route::prefix('publishinghouse')->group(function () {
     Route::get('/', "Master\PublishingHouseController@index")->name('publishinghouse.index');
     //CREATE
@@ -66,6 +58,7 @@ Route::prefix('publishinghouse')->group(function () {
     // DELETE
     Route::post('/destroy/{publishing_house_id}', 'Master\PublishingHouseController@destroy')->name('publishinghouse.destroy');
 });
+//Thể loại
 Route::prefix('type')->group(function () {
     Route::get('/', "Master\TypeController@index")->name('type.index');
     //CREATE
@@ -76,38 +69,72 @@ Route::prefix('type')->group(function () {
     // DELETE
     Route::post('/destroy/{type_id}', 'Master\TypeController@destroy')->name('type.destroy');
 });
+//Hạng mục
 Route::prefix('category')->group(function () {
     Route::get('/', "Master\CategoryController@index")->name('category.index');
     //CREATE
-    Route::get('/create/{type_id}', "Master\CategoryController@create_render")->name('category.create');
-    Route::post('/create', "Master\CategoryController@create_submit")->name('category.create.submit');
+    Route::get('/add/{type_id}', "Master\CategoryController@add_render")->name('category.add');
+    Route::post('/add', "Master\CategoryController@add_submit")->name('category.add.submit');
     //CREATE VIEW CATEGORY
-    Route::get('/create/view', "Master\CategoryController@create_render_view")->name('category.create.view');
-    Route::post('/create/view', "Master\CategoryController@create_submit_view")->name('category.create.submit.view');
+    Route::get('/create', "Master\CategoryController@create_render")->name('category.create');
+    Route::post('/create', "Master\CategoryController@create_submit")->name('category.create.submit');
     // EDIT
     Route::get('/edit/{category_id}', 'Master\CategoryController@edit')->name('category.edit');
     Route::post('/edit/submit/{category_id}', 'Master\CategoryController@update')->name('category.edit.submit');
     // DELETE
     Route::post('/destroy/{category_id}', 'Master\CategoryController@destroy')->name('category.destroy');
 });
+//Thể loại nghệ thuật
 Route::prefix('genre')->group(function () {
     Route::get('/', "Master\GenreController@index")->name('genre.index');
     //CREATE
-    Route::get('/create/{category_id}', "Master\GenreController@create_render")->name('genre.create');
-    Route::post('/create', "Master\GenreController@create_submit")->name('genre.create.submit');
+    Route::get('/add/{category_id}', "Master\GenreController@add_render")->name('genre.add');
+    Route::post('/add', "Master\GenreController@add_submit")->name('genre.add.submit');
     //CREATE VIEW GENRE
-    Route::get('/create/direct', "Master\GenreController@create_render_direct")->name('genre.create.direct');
-    Route::post('/create/direct', "Master\GenreController@create_submit_direct")->name('genre.create.submit.direct');
+    Route::get('/create', "Master\GenreController@create_render")->name('genre.create');
+    Route::post('/create', "Master\GenreController@create_submit")->name('genre.create.submit');
     // EDIT
     Route::get('/edit/{genre_id}', 'Master\GenreController@edit')->name('genre.edit');
     Route::post('/edit/submit/{genre_id}', 'Master\GenreController@update')->name('genre.edit.submit');
     // DELETE
     Route::post('/destroy/{genre_id}', 'Master\GenreController@destroy')->name('genre.destroy');
 });
-
+//Dịch giả
+Route::prefix('tranlator')->group(function () {
+    Route::get('/', "Master\TranlatorController@index")->name('tranlator.index');
+    //CREATE
+    Route::get('/create', "Master\TranlatorController@create_render")->name('tranlator.create');
+    Route::post('/create', "Master\TranlatorController@create_submit")->name('tranlator.create.submit');
+    // EDIT
+    Route::get('/edit/{tranlator_id}', 'Master\TranlatorController@edit')->name('tranlator.edit');
+    Route::post('/edit/submit/{tranlator_id}', 'Master\TranlatorController@update')->name('tranlator.edit.submit');
+    // DELETE
+    Route::post('/destroy/{tranlatorr_id}', 'Master\TranlatorController@destroy')->name('tranlator.destroy');
+});
+//Sách
 Route::prefix('book')->group(function () {
     Route::get('/', "Master\BookController@index")->name('book.index');
-
+    //CREATE
     Route::get('/create', "Master\BookController@create_render")->name('book.create');
     Route::post('/create', "Master\BookController@create_submit")->name('book.create.submit');
+    // EDIT
+    Route::get('/edit/{book_id}', 'Master\BookController@edit')->name('book.edit');
+    Route::post('/edit/submit/{book_id}', 'Master\BookController@update')->name('book.edit.submit');
+    // DELETE
+    Route::post('/destroy/{book_id}', 'Master\BookController@destroy')->name('book.destroy');
+});
+
+// Route::prefix('customer')->group(function () {
+//     Route::get('/', "Master\BookController@index")->name('customer.index');
+//     //CREATE
+//     Route::get('/create', "Master\BookController@create_render")->name('book.create');
+//     Route::post('/create', "Master\BookController@create_submit")->name('book.create.submit');
+//     // EDIT
+//     Route::get('/edit/{book_id}', 'Master\BookController@edit')->name('book.edit');
+//     Route::post('/edit/submit/{book_id}', 'Master\BookController@update')->name('book.edit.submit');
+//     // DELETE
+//     Route::post('/destroy/{book_id}', 'Master\BookController@destroy')->name('book.destroy');
+// });
+Route::get('customer', function () {
+    return view('pages.customer.index');
 });
