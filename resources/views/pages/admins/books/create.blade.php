@@ -25,9 +25,23 @@ button, input, select, textarea {
         <form data-toggle="validator" novalidate="true" action="{{route('book.create.submit')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
+                    {{-- <input type="file" accept="image/*" onchange="loadFile(event)">
+                    <img id="output"/> --}}
+                
+                
                 <div class="col-sm-10">
-                                <input type="text"  name="book_title" id="book_title" placeholder=" Tên sách"><br><br>
-                                <textarea name="book_description" class="form-control " id="book_description"></textarea>
+                        @csrf
+                    <img id="image" alt="your image" width="100" height="100" />
+                    <input type="file" name="avatar" id="avatar"
+                    onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])">
+                    
+                    <img id="photo" alt="your photo" width="100" height="100" />
+                    <input type="file" name="photos[]" id="photos[]" multiple
+                    onclick=loadFile()>
+                
+
+                    <input type="text"  name="book_title" id="book_title" placeholder=" Tên sách"><br><br>
+                    <textarea name="book_description" class="form-control " id="book_description"></textarea>
                 </div>
             
                 <div class="col-sm-2">
@@ -39,6 +53,13 @@ button, input, select, textarea {
                                     <input type="number"  name="sale_price" id="sale_price" placeholder=" VNĐ">
                                     <div>Ngày phát hành</div>
                                     <input type="text"  name="book_releasedate" id="book_releasedate" >
+                                    <div>Thể loại</div>
+                                    <select name="tranlator_id"   stype="padding:4px; width:100%">
+                                        <option value="" selected disabled>-Chọn-</option>
+                                        @foreach($genre as $gen)
+                                            <option value="{{$gen->genre_id}}">{{$gen->genre_name}}</option>
+                                        @endforeach 
+                                    </select>
                                     <div>Hình thức</div>
                                     <input type="text"  name="book_form" id="book_form" >
                                     <div>Số trang</div>
@@ -97,5 +118,29 @@ button, input, select, textarea {
     </div> 
 
 </div>
-
+<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+<script>
+    var options = {
+      filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+      filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+      filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+      filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+    };
+  </script>
+{{-- <script>
+        var loadFile = function(event) {
+            alert(123);
+          var output = document.getElementById('photo');
+          photo.src = URL.createObjectURL(event.target.files[0]);
+        };
+      </script> --}}
+      <script type="text/javascript">
+          function show(){
+            var arrLen=2;
+            For (i=0 ; i < arrLen ; i++){
+                document.getElementById('photo').src = window.URL.createObjectURL(this.files[i]);
+            }
+            
+          }
+      </script>
 @endsection

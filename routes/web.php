@@ -12,7 +12,52 @@
 */
 
 Route::get('/', function () {
-    return view('pages.admins.books.index');
+    return view('pages.customers.index');
+    // Route::get('/', "Master\CustomerController@index")->name('customer/index');
+});
+Route::get('/404', function () {
+    return view('pages.customers.404');
+    // Route::get('/', "Master\CustomerController@index")->name('customer/index');
+});
+Route::get('/about', function () {
+    return view('pages.customers.about');
+    // Route::get('/', "Master\CustomerController@index")->name('customer/index');
+});
+Route::get('/cart', function () {
+    return view('pages.customers.cart');
+    // Route::get('/', "Master\CustomerController@index")->name('customer/index');
+});
+Route::get('/checkout', function () {
+    return view('pages.customers.checkout');
+    // Route::get('/', "Master\CustomerController@index")->name('customer/index');
+});
+Route::get('/contact', function () {
+    return view('pages.customers.contact');
+    // Route::get('/', "Master\CustomerController@index")->name('customer/index');
+});
+Route::get('/loginn', function () {
+    return view('pages.customers.login');
+    // Route::get('/', "Master\CustomerController@index")->name('customer/index');
+});
+Route::get('/my-account', function () {
+    return view('pages.customers.my-account');
+    // Route::get('/', "Master\CustomerController@index")->name('customer/index');
+});
+Route::get('/shop', function () {
+    return view('pages.customers.shop');
+    // Route::get('/', "Master\CustomerController@index")->name('customer/index');
+});
+Route::get('/single-product', function () {
+    return view('pages.customers.single-product');
+    // Route::get('/', "Master\CustomerController@index")->name('customer/index');
+});
+Route::get('/thank-you', function () {
+    return view('pages.customers.thank-you');
+    // Route::get('/', "Master\CustomerController@index")->name('customer/index');
+});
+Route::get('/wishlist', function () {
+    return view('pages.customers.wishlist');
+    // Route::get('/', "Master\CustomerController@index")->name('customer/index');
 });
 
 Auth::routes();
@@ -135,6 +180,3 @@ Route::prefix('book')->group(function () {
 //     // DELETE
 //     Route::post('/destroy/{book_id}', 'Master\BookController@destroy')->name('book.destroy');
 // });
-Route::get('customer', function () {
-    return view('pages.customer.index');
-});

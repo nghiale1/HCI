@@ -16,6 +16,7 @@ class CreateBookImagesTable extends Migration
                 $table->increments('book_image_id')->comment('id hình ảnh - sách');
                 $table->integer('book_id')->comment('id sách');
                 $table->integer('image_id')->comment('id hình ảnh');
+                $table->string('image_note', 60)->comment('ghi chú');
 
                 // log time
                 $table->timestamp('created_at')

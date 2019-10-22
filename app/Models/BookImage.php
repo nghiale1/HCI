@@ -17,6 +17,7 @@ class BookImage extends BaseModel
         'book_image_id',
         'book_id',
         'image_id',
+        'image_note',
         'created_at',
         'updated_at',
         'deleted_at',
