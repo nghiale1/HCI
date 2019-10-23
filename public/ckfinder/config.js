@@ -11,12 +11,12 @@ var config = {};
 // config.language = 'pl';
 // config.skin = 'jquery-mobile';
 $baseUrl = '/public/image/';
-enabled   = "false";
-// CKFinder.define(config);
-// $config['authentication'] = function() {
-//     return true;
-// };
-// function CheckAuthentication()
-// {
-//     return true;
-// }
+$enabled   = "false";
+CKFinder.define(config);
+$config['authentication'] = function() {
+    return true;
+};
+function CheckAuthentication()
+{
+    return true;
+}

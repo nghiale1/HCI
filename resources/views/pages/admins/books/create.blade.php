@@ -30,16 +30,16 @@ button, input, select, textarea {
                 
                 
                 <div class="col-sm-10">
-                        @csrf
-                    <img id="image" alt="your image" width="100" height="100" />
+                    <img id="image" alt="Chọn hình đại diện" width="100" height="100" />
+                    
                     <input type="file" name="avatar" id="avatar"
                     onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])">
                     
-                    <img id="photo" alt="your photo" width="100" height="100" />
-                    <input type="file" name="photos[]" id="photos[]" multiple
-                    onclick=loadFile()>
-                
 
+                    {{-- <div class="img"></div> --}}
+                    {{-- <img id="hinh" alt="your photo" width="100" height="100" /> --}}
+                    <input type="file" name="photos[]" id="photos[]" multiple
+                    onchange=show()>
                     <input type="text"  name="book_title" id="book_title" placeholder=" Tên sách"><br><br>
                     <textarea name="book_description" class="form-control " id="book_description"></textarea>
                 </div>
@@ -118,29 +118,48 @@ button, input, select, textarea {
     </div> 
 
 </div>
-<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
 <script>
+
     var options = {
       filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
       filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
       filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
       filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
     };
+    
   </script>
+  {{-- <script>
+      $url = 'localhost:8000';
+  CKEDITOR.replace( 'book_description2', {
+        filebrowserBrowseUrl: '{{ asset('ckfinder/ckfinder.html') }}',
+        filebrowserImageBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Images') }}',
+        filebrowserFlashBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Flash') }}',
+        filebrowserUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',
+        filebrowserImageUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',
+        filebrowserFlashUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}'
+    } );
+  </script> --}}
 {{-- <script>
-        var loadFile = function(event) {
-            alert(123);
-          var output = document.getElementById('photo');
-          photo.src = URL.createObjectURL(event.target.files[0]);
-        };
+        // var loadFile = function(event) {
+        //     alert(123);
+        //   var output = document.getElementById('photo');
+        //   photo.src = URL.createObjectURL(event.target.files[0]);
+        // };
       </script> --}}
       <script type="text/javascript">
           function show(){
-            var arrLen=2;
-            For (i=0 ; i < arrLen ; i++){
-                document.getElementById('photo').src = window.URL.createObjectURL(this.files[i]);
+            var arrLen=file.length;
+            for (i=0 ; i < arrLen ; i++){
+                // $('.img').append(img);
+                // var img='<img id="photo" alt="your photo" width="100" height="100" />';
+                // <img id="photo" alt="your photo" width="100" height="100" />
+                document.getElementById('hinh').src = window.URL.createObjectURL(this.files[i]);
             }
             
+            
           }
+          
       </script>
+      
 @endsection
