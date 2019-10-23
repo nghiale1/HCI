@@ -1,36 +1,31 @@
 <?php
 
-namespace App\Http\Middleware;
+// namespace App\Http\Middleware;
 
-use Closure;
+// use Closure;
 
-class CustomCKFinderAuth
-{
-    /**
-     * Handle an incoming request.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \Closure                 $next
-     *
-     * @return mixed
-     */
-    public function handle($request, Closure $next)
-    {
-        return $next($request);
-    }
+// class CustomCKFinderAuth
+// {
+//     /**
+//      * Handle an incoming request.
+//      *
+//      * @param \Illuminate\Http\Request $request
+//      * @param \Closure                 $next
+//      *
+//      * @return mixed
+//      */
+//     public function handle($request, Closure $next)
+//     {
+//         // if (\Auth::check()) {
+//         //     config(['ckfinder.authentication' => function () use ($request) {
+//         //         return true;
+//         //     }]);
+//         // } else {
+//         //     config(['ckfinder.authentication' => function () use ($request) {
+//         //         return false;
+//         //     }]);
+//         // }
 
-    // public function handle($request, Closure $next)
-    // {
-    //     if (\Auth::check()) {
-    //         config(['ckfinder.authentication' => function() use ($request) {
-    //             return true;
-    //         }] );
-    //     } else {
-    //         config(['ckfinder.authentication' => function() use ($request) {
-    //             return false;
-    //         }] );
-    //     }
-
-    //     return $next($request);
-    // }
-}
+//         return $next($request);
+//     }
+// }

@@ -38,5 +38,8 @@
 		<!-- responsive css -->
         <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
 		<!-- modernizr css -->
-        <script src="{{asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
+        {{-- <script src="{{asset('js/vendor/modernizr-2.8.3.min.js')}}"></script> --}}
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+  
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
     </head>

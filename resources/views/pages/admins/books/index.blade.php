@@ -10,18 +10,18 @@
                 <br>
                 <br>
                 <div class="table-responsive">
-                    <table class="table color-table primary-table">
+                    <table class="table color-table primary-table" id='book_table'>
                         <thead>
                             <tr>
                                 <th>Mã sách:</th>
                                 <th>Tên sách:</th>
-                                <th>Mô tả Sách:</th>
                                 <th>Giá thành:</th>
                                 <th>Giá khuyến mãi:</th>
                                 <th>Tác giả:</th>
                                 <th>Dịch giả:</th>
                                 <th>Nhà xuất bản:</th>
                                 <th>Nhà phát hành:</th>
+                                <th>Ngày xuất bản:</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -30,13 +30,13 @@
                                 <tr>
                                     <td>{{$item['book_id']}}</td>
                                     <td>{{$item['book_title']}}</td>
-                                    <td>{!!$item['book_description']!!}</td>
                                     <td>{{$item['book_price']}}</td>
                                     <td>{{$item->sales['sale_price']}}</td>
                                     <td>{{$item->authors['author_name']}}</td>
                                     <td>{{$item->tranlators['tranlators_name']}}</td>
                                     <td>{{$item->publishing_houses['publishing_house_name']}}</td>
-                                    <td>{{$item->book_companies['book_company_name']}}</td>
+                                    <td>{{$item->publishing_houses['publishing_house_name']}}</td>
+                                    <td>{{$item['book_releasedate']}}</td>
 
                                     <td>
                                         <form action="{{ route('book.destroy', $item->book_id) }}" method="post" class="delete_form">
@@ -56,4 +56,15 @@
     {{-- end div row --}}
 </div>
 {{-- end div container-fluid --}}
+
+<script>
+$(document).ready(function () {
+        $('#book_table').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            }); 
+    });
+</script>
 @endsection

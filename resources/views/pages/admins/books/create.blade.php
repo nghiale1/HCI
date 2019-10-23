@@ -25,9 +25,23 @@ button, input, select, textarea {
         <form data-toggle="validator" novalidate="true" action="{{route('book.create.submit')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
+                    {{-- <input type="file" accept="image/*" onchange="loadFile(event)">
+                    <img id="output"/> --}}
+                
+                
                 <div class="col-sm-10">
-                                <input type="text"  name="book_title" id="book_title" placeholder=" Tên sách"><br><br>
-                                <textarea name="book_description" class="form-control " id="book_description"></textarea>
+                    <img id="image" alt="Chọn hình đại diện" width="100" height="100" />
+                    
+                    <input type="file" name="avatar" id="avatar"
+                    onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])">
+                    
+
+                    {{-- <div class="img"></div> --}}
+                    {{-- <img id="hinh" alt="your photo" width="100" height="100" /> --}}
+                    <input type="file" name="photos[]" id="photos[]" multiple
+                    onchange=show()>
+                    <input type="text"  name="book_title" id="book_title" placeholder=" Tên sách"><br><br>
+                    <textarea name="book_description" class="form-control " id="book_description"></textarea>
                 </div>
             
                 <div class="col-sm-2">
@@ -39,6 +53,13 @@ button, input, select, textarea {
                                     <input type="number"  name="sale_price" id="sale_price" placeholder=" VNĐ">
                                     <div>Ngày phát hành</div>
                                     <input type="text"  name="book_releasedate" id="book_releasedate" >
+                                    <div>Thể loại</div>
+                                    <select name="tranlator_id"   stype="padding:4px; width:100%">
+                                        <option value="" selected disabled>-Chọn-</option>
+                                        @foreach($genre as $gen)
+                                            <option value="{{$gen->genre_id}}">{{$gen->genre_name}}</option>
+                                        @endforeach 
+                                    </select>
                                     <div>Hình thức</div>
                                     <input type="text"  name="book_form" id="book_form" >
                                     <div>Số trang</div>
@@ -97,5 +118,48 @@ button, input, select, textarea {
     </div> 
 
 </div>
+<script src="https://cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+<script>
 
+    var options = {
+      filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+      filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+      filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+      filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+    };
+    
+  </script>
+  {{-- <script>
+      $url = 'localhost:8000';
+  CKEDITOR.replace( 'book_description2', {
+        filebrowserBrowseUrl: '{{ asset('ckfinder/ckfinder.html') }}',
+        filebrowserImageBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Images') }}',
+        filebrowserFlashBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Flash') }}',
+        filebrowserUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',
+        filebrowserImageUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',
+        filebrowserFlashUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}'
+    } );
+  </script> --}}
+{{-- <script>
+        // var loadFile = function(event) {
+        //     alert(123);
+        //   var output = document.getElementById('photo');
+        //   photo.src = URL.createObjectURL(event.target.files[0]);
+        // };
+      </script> --}}
+      <script type="text/javascript">
+          function show(){
+            var arrLen=file.length;
+            for (i=0 ; i < arrLen ; i++){
+                // $('.img').append(img);
+                // var img='<img id="photo" alt="your photo" width="100" height="100" />';
+                // <img id="photo" alt="your photo" width="100" height="100" />
+                document.getElementById('hinh').src = window.URL.createObjectURL(this.files[i]);
+            }
+            
+            
+          }
+          
+      </script>
+      
 @endsection

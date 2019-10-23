@@ -26,16 +26,14 @@ class BookController extends Controller
     // Hàm đỗ dữ liệu của một Khoa ra trang index
     public function index(Request $request)
     {
-        $config = [
-            'model' => new Book(),
-            'request' => $request,
-        ];
-        $this->config($config);
-        $data = $this->model->web_index($this->request);
-        // dd($data);
+        $book = Book::all();
 
-        return view('pages.admins.books.index', ['data' => $data]);
+        return view('pages.customers.index', compact('book'));
     }
+
+    //tạo code
+    // $pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@!$%';
+    // $random = substr(str_shuffle(str_repeat($pool, 5)), 0, 8);
 
     // TODO: Mỗi function chỉ thực hiện 1 nhiệm vụ. Cho người khác dễ sửa chửa code của mình.
     // Hàm chỉ thực hiện đỗ ra trang Thêm
