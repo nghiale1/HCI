@@ -19,14 +19,14 @@
                         </div>
                         <div class="col-md-6">
                             <div class="about-image">
-                                <img src="img/about/1.jpg" alt="">
+                                <img src="{{asset('img/about/photo-1544716278-ca5e3f4abd8c.jpg')}}" alt="">
                             </div>
                         </div>
                     </div>
                     <div class="about-bottom-inner">
                         <div class="col-md-6">
                             <div class="about-image">
-                                <img src="img/about/2.jpg" alt="">
+                                <img src="{{asset('img/about/photo-1516979187457-637abb4f9353.jpg')}}" alt="">
                             </div>
                         </div>
                         <div class="col-md-6">

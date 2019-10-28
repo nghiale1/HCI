@@ -1,5 +1,65 @@
 @extends('layouts.customer')
-        @section('content')
+@section('content')
+<style>
+#book_image{
+    width: 150px;			
+	height: 160px;
+	/* margin: auto; */
+    float: left;
+	display: block;
+}
+ul.product-tabs {
+    text-align: left;
+}
+#avatar_product{
+    max-width: 270px;
+    
+    height: 280px;
+    margin: auto;
+    display: block;
+}
+#title_book{
+    height: 55px;
+}
+.data-table {
+    width: 100%;
+    border: 1px solid #d9dde3;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
+    background: transparent;
+}
+#product-attribute-specs-table{
+    border-collapse: collapse;
+}
+.table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th {
+    background-color: #f9f9f9;
+}
+.product-tabs-content .data-table .label, .product-tabs-content .data-table .data {
+    font-size: 1.1em !important;
+    color: #2A2A2A;
+}
+.data-table tr.odd th {
+    border-right: 1px solid #d9dde3;
+    color: #777;
+    padding: 10px;
+}
+.data-table tbody th{
+    border: none;
+}
+.label {
+    display: table-cell;
+    font-size: 100%!important;
+    line-height: 1.6;
+}
+tr.even th {
+    color: #777;
+}
+td.data.last {
+    padding-left: 25px;
+}
+th.label {
+    font-weight: normal;
+}
+</style>
         <!-- Single Product Area Start -->
         <div class="single-product-area section-padding">
             <div class="container">
@@ -7,31 +67,41 @@
                     <div class="col-md-6 col-sm-7">
                         <div class="single-product-image-inner">
                             <!-- Tab panes -->
+                            {{-- @foreach($book_avatar as $item) --}}
                             <div class="tab-content">
+                                
                                 <div role="tabpanel" class="tab-pane active" id="one">
-                                    <a class="venobox" href="img/single-product/bg-1.jpg" data-gall="gallery" title="">
-                                        <img src="img/single-product/bg-1.jpg" alt="">
+                                    <a class="venobox" href="{{asset($book_avatar->image_path)}}" data-gall="gallery" title="">
+                                        <img src="{{asset($book_avatar->image_path)}}" alt="">
                                     </a>
                                 </div>
-                                <div role="tabpanel" class="tab-pane" id="two">
-                                    <a class="venobox" href="img/single-product/bg-2.jpg" data-gall="gallery" title="">
-                                        <img src="img/single-product/bg-2.jpg" alt="">
+                                {{-- <div role="tabpanel" class="tab-pane" id="two">
+                                    <a class="venobox" href="{{asset($item->image_path)}}" data-gall="gallery" title="">
+                                        <img src="{{asset($item->image_path)}}" alt="">
                                     </a>
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="three">
-                                    <a class="venobox" href="img/single-product/bg-3.jpg" data-gall="gallery" title="">
-                                        <img src="img/single-product/bg-3.jpg" alt="">
+                                    <a class="venobox" href="{{asset($item->image_path)}}" data-gall="gallery" title="">
+                                        <img src="{{asset($item->image_path)}}" alt="">
                                     </a>
-                                </div>
+                                </div> --}}
                             </div>
+                            {{-- @endforeach --}}
                             <!-- Nav tabs -->
+                            
                             <ul class="product-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#one" aria-controls="one" role="tab" data-toggle="tab"><img src="img/single-product/1.jpg" alt=""></a></li>
-                                <li role="presentation"><a href="#two" aria-controls="two" role="tab" data-toggle="tab"><img src="img/single-product/2.jpg" alt=""></a></li>
-                                <li role="presentation"><a href="#three" aria-controls="three" role="tab" data-toggle="tab"><img src="img/single-product/3.jpg" alt=""></a></li>
+                                @if($book_image != null)
+                                @foreach($book_image as $item)
+                                <li role="presentation" class="active"><a href="{{asset($item->image_path)}}" aria-controls="one" role="tab" data-toggle="tab"><img src="{{asset($item->image_path)}}" alt="" id="book_image"></a></li>
+                                {{-- <li role="presentation"><a href="#two" aria-controls="two" role="tab" data-toggle="tab"><img src="{{asset($item->image_path)}}" alt=""></a></li>
+                                <li role="presentation"><a href="#three" aria-controls="three" role="tab" data-toggle="tab"><img src="{{asset($item->image_path)}}" alt=""></a></li> --}}
+                                @endforeach
+                                @endif
                             </ul>
                         </div>
-                    </div>
+                        
+                    </div> 
+                    <!-- Tab right -->
                     <div class="col-md-6 col-sm-5">
                         <div class="single-product-details">
                             <div class="list-pro-rating">
@@ -41,13 +111,16 @@
                                 <i class="fa fa-star icolor"></i>
                                 <i class="fa fa-star"></i>
                             </div>
-                            <h2>Cold mountain</h2>
+                        <h2>{{$book_avatar->book_title}}</h2>
                             <div class="availability">
                                 <span>In stock</span>
                             </div>
                             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
                             <div class="single-product-price">
-                                <h2>$49.66</h2>
+                                <h1 style="    margin-bottom: 5px;">{{number_format($book_avatar->sale_price)}} đ</h1>
+                                <br>
+                                <h3 style="text-decoration: line-through;">{{number_format($book_avatar->book_price)}} đ</h3>
+                                    
                             </div>
                             <div class="product-attributes clearfix">
                                 <span class="pull-left" id="quantity-wanted-p">
@@ -56,6 +129,7 @@
 									<span class="inc qtybutton">+</span>	
 								</span>
                                <span>
+      {{-- add to cart                              --}}
                                     <a class="cart-btn btn-default" href="cart.html">
                                         <i class="flaticon-shop"></i>
                                         Add to cart
@@ -95,37 +169,115 @@
                         <div class="p-details-tab-content">
                             <div class="p-details-tab">
                                 <ul class="p-details-nav-tab" role="tablist">
-                                    <li role="presentation" class="active"><a href="#more-info" aria-controls="more-info" role="tab" data-toggle="tab">Description</a></li>
-                                    <li role="presentation"><a href="#data" aria-controls="data" role="tab" data-toggle="tab">Review</a></li>
-                                    <li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Tab</a></li>
+                                    <li role="presentation" class="active"><a href="#more-info" aria-controls="more-info" role="tab" data-toggle="tab">Mô tả</a></li>
+                                    <li role="presentation"><a href="#data" aria-controls="data" role="tab" data-toggle="tab">Chi tiết</a></li>
+                                    <li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Review sách</a></li>
                                 </ul>
                             </div>
                             <div class="clearfix"></div>
+                            {{-- detail --}}
                             <div class="tab-content review">
                                 <div role="tabpanel" class="tab-pane active" id="more-info">
-                                    <p>Fashion has been creating well-designed collections since 2010. The brand offers feminine designs delivering stylish separates and statement dresses which have since evolved into a full ready-to-wear collection in which every item is a vital part of a woman's wardrobe. The result? Cool, easy, chic looks with youthful elegance and unmistakable signature style. All the beautiful pieces are made in Italy and manufactured with the greatest attention. Now Fashion extends to a range of accessories including shoes, hats, belts and more!</p>
+                                    <p>{!!$book_avatar->book_description!!}</p>
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="data">
                                     <table class="table-data-sheet">
                                         <tbody>
                                             <tr class="odd">
-                                                <td>Compositions</td>
-                                                <td>Cotton</td>
+                                                
+                                                <td>Mã hàng</td>
+                                                <td>{{$detail_book->book_id}}</td>
+                                                
                                             </tr>
                                             <tr class="even">
-                                                <td>Styles</td>
-                                                <td>Casual</td>
+                                                <td>Tên Nhà Cung Cấp</td>
+                                                <td>{{$detail_book->book_company_name}}</td>
                                             </tr>
                                             <tr class="odd">
-                                                <td>Properties</td>
-                                                <td>Short Sleeve</td>
+                                                <td>Tác giả</td>
+                                                <td>{{$detail_book->author_name}}</td>
+                                            </tr>
+                                            @if($detail_book->tranlator_name!=null)
+                                            <tr class="even">
+                                                <td>Người Dịch</td>
+                                                <td>{{$detail_book->tranlator_name}}</td>
+                                            </tr>
+                                            @endif
+                                            <tr class="odd">
+                                                <td>NXB</td>
+                                                <td>{{$detail_book->publishing_house_name}}</td>
+                                            </tr>
+                                            <tr class="even">
+                                                <td>Năm XB</td>
+                                                <td>{{$detail_book->book_releasedate}}</td>
+                                            </tr>
+                                            <tr class="odd">
+                                                <td>Trọng lượng (gr)</td>
+                                                <td>{{$detail_book->book_weight}}</td>
+                                            </tr>
+                                            <tr class="even">
+                                                <td>Kích thước</td>
+                                                <td>{{$detail_book->book_size}}</td>
+                                            </tr>
+                                            <tr class="odd">
+                                                <td>Số trang</td>
+                                                <td>{{$detail_book->book_pagenumber}}</td>
+                                            </tr>
+                                            <tr class="even">
+                                                <td>Hình thức</td>
+                                                <td>{{$detail_book->book_form}}</td>
                                             </tr>
                                         </tbody>
                                    </table>
                                 </div>
+                                {{-- review --}}
                                 <div role="tabpanel" class="tab-pane" id="reviews">
                                     <div id="product-comments-block-tab">
-                                        <a href="#" class="comment-btn"><span>Be the first to write your review!</span></a>
+                                            <table class="data-table table-striped" id="product-attribute-specs-table">
+                                                <colgroup><col width="25%"><col></colgroup>
+                                                    <tbody>
+                                                        <tr class="first odd">
+                                                            <th class="label">Mã hàng</th>
+                                                            <td class="data last">{{$detail_book->book_id}}</td>
+                                                        </tr>
+                                                                                                                                                                                                                                                                                                            <tr class="even">
+                                                            <th class="label">Tên Nhà Cung Cấp</th>
+                                                            <td class="data last">
+                                                            <a class="xem-chi-tiet" href="huy-hoang">{{$detail_book->book_company_name}}</td>
+                                                        </tr>                                                                                                               <tr class="odd">
+                                                            <th class="label">Tác giả</th>
+                                                            <td class="data last">{{$detail_book->author_name}}</td>
+                                                        </tr>
+                                                        <tr class="even">
+                                                            <th class="label">Người Dịch</th>
+                                                            <td class="data last">{{$detail_book->tranlator_name}}</td>
+                                                        </tr>
+                                                        <tr class="odd">
+                                                            <th class="label">NXB</th>
+                                                            <td class="data last">{{$detail_book->publishing_house_name}}</td>
+                                                        </tr>
+                                                        <tr class="even">
+                                                            <th class="label">Năm XB</th>
+                                                            <td class="data last">{{$detail_book->book_releasedate}}</td>
+                                                        </tr>
+                                                        <tr class="odd">
+                                                            <th class="label">Trọng lượng (gr)</th>
+                                                            <td class="data last">{{$detail_book->book_weight}}</td>
+                                                        </tr>
+                                                        <tr class="even">
+                                                            <th class="label">Kích thước</th>
+                                                            <td class="data last">{{$detail_book->book_size}}</td>
+                                                        </tr>
+                                                        <tr class="odd">
+                                                            <th class="label">Số trang</th>
+                                                            <td class="data last">{{$detail_book->book_pagenumber}}</td>
+                                                        </tr>
+                                                        <tr class="even">
+                                                            <th class="label">Hình thức</th>
+                                                            <td class="data last">{{$detail_book->book_form}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                            </table>
                                     </div>
                                 </div>
                             </div>
@@ -139,209 +291,72 @@
         <div class="related-product-area">
             <h2 class="section-title">RELATED PRODUCTS</h2>
             <div class="container">
-                <div class="row">
-                    <div class="related-product indicator-style">
-                        <div class="col-md-3">
-                            <div class="single-banner">
-                                <div class="product-wrapper">
-                                    <a href="#" class="single-banner-image-wrapper">
-                                        <img alt="" src="img/featured/1.jpg">
-                                        <div class="price"><span>$</span>160</div>
-                                        <div class="rating-icon">
-                                            <i class="fa fa-star icolor"></i>
-                                            <i class="fa fa-star icolor"></i>
-                                            <i class="fa fa-star icolor"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </a>
-                                    <div class="product-description">
-                                        <div class="functional-buttons">
-                                            <a href="#" title="Add to Cart">
-                                                <i class="fa fa-shopping-cart"></i>
-                                            </a>
-                                            <a href="#" title="Add to Wishlist">
-                                                <i class="fa fa-heart-o"></i>
-                                            </a>
-                                            <a href="#" title="Quick View">
-                                                <i class="fa fa-compress"></i>
-                                            </a>
-                                        </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="tab-menu">
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class="first-item active">
+                                        <a href="#arrival" aria-controls="arrival" role="tab" data-toggle="tab">Sản phẩm mới</a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#sale" aria-controls="sale" role="tab" data-toggle="tab">BEST SELLERS</a>
+                                    </li>
+                                </ul>
+                            </div>         
+                        </div>
+                    </div>   
+                    <div class="row">
+                        <div class="product-list tab-content">
+                            <div role="tabpanel" class="tab-pane fade in active" id="arrival">
+                                <div class="featured-product-list indicator-style">
+                                    @foreach ($book as $item)
+                                    <div class="single-p-banner">
+                                       
+                                          <div class="col-md-3">
+                                            <div class="single-banner">
+                                                <div class="product-wrapper" >
+                                                    <a href="#" class="single-banner-image-wrapper">
+
+                                                        <img id=avatar_product alt="" src="{{asset($item->image_path)}}" >
+                                                        <div class="price" style="text-decoration: line-through;">{{number_format($item->book_price)}}<span> đ</span></div>
+                                                        <div class="price" style="padding-top:6%">{{number_format($item->sale_price)}}<span> đ</span></div>
+                                                        <div class="rating-icon">
+                                                            <i class="fa fa-star icolor"></i>
+                                                            <i class="fa fa-star icolor"></i>
+                                                            <i class="fa fa-star icolor"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        </div>
+                                                    </a>
+                                                    <div class="product-description">
+                                                        <div class="functional-buttons">
+                                                            <a href="#" title="Add to Cart">
+                                                                <i class="fa fa-shopping-cart"></i>
+                                                            </a>
+                                                            <a href="#" title="Add to Wishlist">
+                                                                <i class="fa fa-heart-o"></i>
+                                                            </a>
+                                                            <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
+                                                                <i class="fa fa-compress"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="banner-bottom text-center" id='title_book'>
+                                                    <a href="#">{{$item->book_title}}</a>
+                                                </div>
+                                            </div>
+                                        </div>  
+                                        
+                                        
                                     </div>
-                                </div>
-                                <div class="banner-bottom text-center">
-                                    <a href="#">People of the book</a>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <div class="single-banner">
-                                <div class="product-wrapper">
-                                    <a href="#" class="single-banner-image-wrapper">
-                                        <img alt="" src="img/featured/2.jpg">
-                                        <div class="price"><span>$</span>160</div>
-                                        <div class="rating-icon">
-                                            <i class="fa fa-star icolor"></i>
-                                            <i class="fa fa-star icolor"></i>
-                                            <i class="fa fa-star icolor"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </a>
-                                    <div class="product-description">
-                                        <div class="functional-buttons">
-                                            <a href="#" title="Add to Cart">
-                                                <i class="fa fa-shopping-cart"></i>
-                                            </a>
-                                            <a href="#" title="Add to Wishlist">
-                                                <i class="fa fa-heart-o"></i>
-                                            </a>
-                                            <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-                                                <i class="fa fa-compress"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="banner-bottom text-center">
-                                    <a href="#">East of eden</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="single-banner">
-                                <div class="product-wrapper">
-                                    <a href="#" class="single-banner-image-wrapper">
-                                        <img alt="" src="img/featured/3.jpg">
-                                        <div class="price"><span>$</span>160</div>
-                                        <div class="rating-icon">
-                                            <i class="fa fa-star icolor"></i>
-                                            <i class="fa fa-star icolor"></i>
-                                            <i class="fa fa-star icolor"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </a>
-                                    <div class="product-description">
-                                        <div class="functional-buttons">
-                                            <a href="#" title="Add to Cart">
-                                                <i class="fa fa-shopping-cart"></i>
-                                            </a>
-                                            <a href="#" title="Add to Wishlist">
-                                                <i class="fa fa-heart-o"></i>
-                                            </a>
-                                            <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-                                                <i class="fa fa-compress"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="banner-bottom text-center">
-                                    <a href="#">Lone some dove</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="single-banner">
-                                <div class="product-wrapper">
-                                    <a href="#" class="single-banner-image-wrapper">
-                                        <img alt="" src="img/featured/4.jpg">
-                                        <div class="price"><span>$</span>160</div>
-                                        <div class="rating-icon">
-                                            <i class="fa fa-star icolor"></i>
-                                            <i class="fa fa-star icolor"></i>
-                                            <i class="fa fa-star icolor"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </a>
-                                    <div class="product-description">
-                                        <div class="functional-buttons">
-                                            <a href="#" title="Add to Cart">
-                                                <i class="fa fa-shopping-cart"></i>
-                                            </a>
-                                            <a href="#" title="Add to Wishlist">
-                                                <i class="fa fa-heart-o"></i>
-                                            </a>
-                                            <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-                                                <i class="fa fa-compress"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="banner-bottom text-center">
-                                    <a href="#">The secret garden</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="single-banner">
-                                <div class="product-wrapper">
-                                    <a href="#" class="single-banner-image-wrapper">
-                                        <img alt="" src="img/featured/5.jpg">
-                                        <div class="price"><span>$</span>160</div>
-                                        <div class="rating-icon">
-                                            <i class="fa fa-star icolor"></i>
-                                            <i class="fa fa-star icolor"></i>
-                                            <i class="fa fa-star icolor"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </a>
-                                    <div class="product-description">
-                                        <div class="functional-buttons">
-                                            <a href="#" title="Add to Cart">
-                                                <i class="fa fa-shopping-cart"></i>
-                                            </a>
-                                            <a href="#" title="Add to Wishlist">
-                                                <i class="fa fa-heart-o"></i>
-                                            </a>
-                                            <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-                                                <i class="fa fa-compress"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="banner-bottom text-center">
-                                    <a href="#">Twilight</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                               <div class="single-banner">
-                                <div class="product-wrapper">
-                                    <a href="#" class="single-banner-image-wrapper">
-                                        <img alt="" src="img/featured/6.jpg">
-                                        <div class="price"><span>$</span>160</div>
-                                        <div class="rating-icon">
-                                            <i class="fa fa-star icolor"></i>
-                                            <i class="fa fa-star icolor"></i>
-                                            <i class="fa fa-star icolor"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </a>
-                                    <div class="product-description">
-                                        <div class="functional-buttons">
-                                            <a href="#" title="Add to Cart">
-                                                <i class="fa fa-shopping-cart"></i>
-                                            </a>
-                                            <a href="#" title="Add to Wishlist">
-                                                <i class="fa fa-heart-o"></i>
-                                            </a>
-                                            <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-                                                <i class="fa fa-compress"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="banner-bottom text-center">
-                                    <a href="#">Cold mountain</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div>             
                 </div>
-            </div>
         </div>
         <!-- Related Product Area End -->
 		@endsection

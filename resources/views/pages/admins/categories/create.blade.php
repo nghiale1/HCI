@@ -13,7 +13,7 @@
                     </select>
                     <h4>Hạng mục sách</h4>
                     <input type="text"  name="category_name" id="category_name">
-                    <br>
+                    <br><br>
                     <button class="btn btn-success" type="submit">Submit</button>
                     <a href="{{route('category.index')}}" class="btn btn-default">Back</a>  
         </form>

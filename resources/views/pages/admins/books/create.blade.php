@@ -54,7 +54,7 @@ button, input, select, textarea {
                                     <div>Ngày phát hành</div>
                                     <input type="text"  name="book_releasedate" id="book_releasedate" >
                                     <div>Thể loại</div>
-                                    <select name="tranlator_id"   stype="padding:4px; width:100%">
+                                    <select name="genre_id"   stype="padding:4px; width:100%">
                                         <option value="" selected disabled>-Chọn-</option>
                                         @foreach($genre as $gen)
                                             <option value="{{$gen->genre_id}}">{{$gen->genre_name}}</option>
