@@ -80,7 +80,7 @@ class CategoryController extends Controller
         $category->category_name = $request->get('category_name');
         $category->save();
 
-        return redirect('type')->with('success', 'Updated Successfully');
+        return redirect('category')->with('success', 'Updated Successfully');
     }
 
     public function destroy($category_id)
@@ -88,6 +88,6 @@ class CategoryController extends Controller
         $data = Category::findOrFail($category_id);
         $data->delete();
 
-        return redirect('type')->with('success', 'Deleted Successfully!');
+        return redirect('category')->with('success', 'Deleted Successfully!');
     }
 }

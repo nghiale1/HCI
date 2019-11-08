@@ -1,5 +1,84 @@
 @extends('layouts.customer')
-        @section('content')
+@section('content')
+<style>
+#avatar_product{
+	/* min-width: 270px; */
+	max-width: 270px;			
+	height: 280px;
+	margin: auto;
+	display: block;
+}
+.single-banner {
+    min-width: 270px;
+}
+.banner-bottom.text-center {
+    height: 110px;
+	vertical-align: bottom;
+}
+.price{
+	display: inline-block;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index: 10;
+    /* top: 0px; */
+    font-size: 19px;
+    /* font-weight: bold; */
+    /* color: transparent; */
+}
+span.p-sale-label.discount-l-fs {
+    position: absolute;
+    top: 10px;
+}
+.section-padding {
+    padding: 20px 0;
+}
+.title_book {
+    height: 40px;
+}
+.rating-icon {
+    position: absolute;
+    bottom: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+.book_price {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+}
+.price_sale{
+	position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+}
+.title_book {
+    padding: 0 5px;
+}
+.book_price {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 25px ;
+}
+.price_sale {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+}
+.title_book {
+    max-height: 20px;
+}
+</style>
         <!-- Shop Area Start -->
         <div class="shopping-area section-padding">
             <div class="container">
@@ -82,13 +161,16 @@
                                 </aside>
                                 <aside class="widget widget-seller">
                                     <h2 class="sidebar-title">TOP SELLERS</h2>
+                                    @for($i=1;$i<=3;$i++)
                                     <div class="single-seller">
+                                       
                                         <div class="seller-img">
-                                            <img src="img/shop/1.jpg" alt="" />
+                                            <img src="{{asset($book[$i]->image_path)}}" alt="" style="width:104px;height:104px"/>
                                         </div>
+                                        
                                         <div class="seller-details">
-                                            <a href="shop.html"><h5>Cold mountain</h5></a>
-                                            <h5>$ 50.00</h5>
+                                        <a href="{{Route('customer/single',$book[$i]->book_id)}}"><h5>{{$book[$i]->book_title}}</h5></a>
+                                            <h5>{{number_format($book[$i]->sale_price)}}<span> đ</span></h5>
                                             <ul>
                                                 <li><i class="fa fa-star icolor"></i></li>
                                                 <li><i class="fa fa-star icolor"></i></li>
@@ -97,23 +179,9 @@
                                                 <li><i class="fa fa-star icolor"></i></li>
                                             </ul>
                                         </div>
+                                        
                                     </div>
-                                    <div class="single-seller">
-                                        <div class="seller-img">
-                                            <img src="img/shop/2.jpg" alt="" />
-                                        </div>
-                                        <div class="seller-details">
-                                            <a href=""><h5>The historian</h5></a>
-                                            <h5>$ 50.00</h5>
-                                            <ul>
-                                                <li><i class="fa fa-star icolor"></i></li>
-                                                <li><i class="fa fa-star icolor"></i></li>
-                                                <li><i class="fa fa-star icolor"></i></li>
-                                                <li><i class="fa fa-star icolor"></i></li>
-                                                <li><i class="fa fa-star icolor"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    @endfor
                                 </aside>
                             </div>
                         </div>
@@ -158,343 +226,76 @@
                                 </div>
                             </div>
                             <div class="tab-content">
+		{{-- Grid --}}
                                 <div class="row tab-pane fade in active" id="home">
-                                    <div class="shop-single-product-area">
-                                        <div class="col-md-4 col-sm-6">
-											<div class="single-banner">
-												<div class="product-wrapper">
-													<a href="#" class="single-banner-image-wrapper">
-														<img alt="" src="img/featured/1.jpg">
-														<div class="price"><span>$</span>160</div>
-													</a>
-													<div class="product-description">
-														<div class="functional-buttons">
-															<a href="#" title="Add to Cart">
-																<i class="fa fa-shopping-cart"></i>
-															</a>
-															<a href="#" title="Add to Wishlist">
-																<i class="fa fa-heart-o"></i>
-															</a>
-															<a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-																<i class="fa fa-compress"></i>
-															</a>
+									@foreach ($book as $item)
+										<div class="shop-single-product-area">
+											<div class="col-md-4 col-sm-6">
+												<div class="single-banner">
+													<div class="product-wrapper">
+														<a href="{{Route('customer/single',$item->book_id)}}" class="single-banner-image-wrapper">
+															<img id="avatar_product" alt="" src="{{asset($item->image_path)}}">
+															<div class="price" style="background: url('{{asset('img/sale40.png')}}') no-repeat;">
+																<span class="p-sale-label discount-l-fs" style="padding-left: 7px;">50%</span>
+															</div>
+															{{-- <div class="price" style="text-decoration: line-through;">{{number_format($item->book_price)}}<span> đ</span></div>
+                                                            <div class="price" style="padding-top:8%">{{number_format($item->sale_price)}}<span> đ</span></div> --}}
+														</a>
+														<div class="product-description">
+															<div class="functional-buttons">
+																<a href="#" title="Add to Cart">
+																	<i class="fa fa-shopping-cart"></i>
+																</a>
+																<a href="#" title="Add to Wishlist">
+																	<i class="fa fa-heart-o"></i>
+																</a>
+																<a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
+																	<i class="fa fa-compress"></i>
+																</a>
+															</div>
+														</div>
+													</div>
+													<div class="banner-bottom text-center">
+														<div class="banner-bottom-title">
+															<div class="title_book" style="height: inherit;">{{$item->book_title}}</div>
+														<div class="price_sale">{{number_format($item->sale_price)}}<span> đ</span></div>
+														<div class="book_price" style="text-decoration: line-through;">{{number_format($item->book_price)}}<span> đ</span></div>
+															{{-- <a href="#">{{$item->book_title}}</a> --}}
+														</div>
+														<div class="rating-icon">
+															<i class="fa fa-star icolor"></i>
+															<i class="fa fa-star icolor"></i>
+															<i class="fa fa-star icolor"></i>
+															<i class="fa fa-star"></i>
+															<i class="fa fa-star"></i>
 														</div>
 													</div>
 												</div>
-												<div class="banner-bottom text-center">
-													<div class="banner-bottom-title">
-														<a href="#">East of eden</a>
-													</div>
-													<div class="rating-icon">
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-													</div>
-												</div>
 											</div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-6">
-											<div class="single-banner">
-												<div class="product-wrapper">
-													<a href="#" class="single-banner-image-wrapper">
-														<img alt="" src="img/featured/2.jpg">
-														<div class="price"><span>$</span>160</div>
-													</a>
-													<div class="product-description">
-														<div class="functional-buttons">
-															<a href="#" title="Add to Cart">
-																<i class="fa fa-shopping-cart"></i>
-															</a>
-															<a href="#" title="Add to Wishlist">
-																<i class="fa fa-heart-o"></i>
-															</a>
-															<a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-																<i class="fa fa-compress"></i>
-															</a>
-														</div>
-													</div>
-												</div>
-												<div class="banner-bottom text-center">
-													<div class="banner-bottom-title">
-														<a href="#">People of the book</a>
-													</div>
-													<div class="rating-icon">
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star"></i>
-													</div>
-												</div>
-											</div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-6">
-											<div class="single-banner">
-												<div class="product-wrapper">
-													<a href="#" class="single-banner-image-wrapper">
-														<img alt="" src="img/featured/3.jpg">
-														<div class="price"><span>$</span>160</div>
-													</a>
-													<div class="product-description">
-														<div class="functional-buttons">
-															<a href="#" title="Add to Cart">
-																<i class="fa fa-shopping-cart"></i>
-															</a>
-															<a href="#" title="Add to Wishlist">
-																<i class="fa fa-heart-o"></i>
-															</a>
-															<a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-																<i class="fa fa-compress"></i>
-															</a>
-														</div>
-													</div>
-												</div>
-												<div class="banner-bottom text-center">
-													<div class="banner-bottom-title">
-														<a href="#">The secret letter</a>
-													</div>
-													<div class="rating-icon">
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-													</div>
-												</div>
-											</div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-6">
-											<div class="single-banner">
-												<div class="product-wrapper">
-													<a href="#" class="single-banner-image-wrapper">
-														<img alt="" src="img/featured/4.jpg">
-														<div class="price"><span>$</span>160</div>
-													</a>
-													<div class="product-description">
-														<div class="functional-buttons">
-															<a href="#" title="Add to Cart">
-																<i class="fa fa-shopping-cart"></i>
-															</a>
-															<a href="#" title="Add to Wishlist">
-																<i class="fa fa-heart-o"></i>
-															</a>
-															<a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-																<i class="fa fa-compress"></i>
-															</a>
-														</div>
-													</div>
-												</div>
-												<div class="banner-bottom text-center">
-													<div class="banner-bottom-title">
-														<a href="#">Lone some dove</a>
-													</div>
-													<div class="rating-icon">
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-													</div>
-												</div>
-											</div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-6">
-											<div class="single-banner">
-												<div class="product-wrapper">
-													<a href="#" class="single-banner-image-wrapper">
-														<img alt="" src="img/featured/5.jpg">
-														<div class="price"><span>$</span>160</div>
-													</a>
-													<div class="product-description">
-														<div class="functional-buttons">
-															<a href="#" title="Add to Cart">
-																<i class="fa fa-shopping-cart"></i>
-															</a>
-															<a href="#" title="Add to Wishlist">
-																<i class="fa fa-heart-o"></i>
-															</a>
-															<a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-																<i class="fa fa-compress"></i>
-															</a>
-														</div>
-													</div>
-												</div>
-												<div class="banner-bottom text-center">
-													<div class="banner-bottom-title">
-														<a href="#">The historian</a>
-													</div>
-													<div class="rating-icon">
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-													</div>
-												</div>
-											</div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-6">
-											<div class="single-banner">
-												<div class="product-wrapper">
-													<a href="#" class="single-banner-image-wrapper">
-														<img alt="" src="img/featured/6.jpg">
-														<div class="price"><span>$</span>160</div>
-													</a>
-													<div class="product-description">
-														<div class="functional-buttons">
-															<a href="#" title="Add to Cart">
-																<i class="fa fa-shopping-cart"></i>
-															</a>
-															<a href="#" title="Add to Wishlist">
-																<i class="fa fa-heart-o"></i>
-															</a>
-															<a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-																<i class="fa fa-compress"></i>
-															</a>
-														</div>
-													</div>
-												</div>
-												<div class="banner-bottom text-center">
-													<div class="banner-bottom-title">
-														<a href="#">East of eden</a>
-													</div>
-													<div class="rating-icon">
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-													</div>
-												</div>
-											</div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-6">
-											<div class="single-banner">
-												<div class="product-wrapper">
-													<a href="#" class="single-banner-image-wrapper">
-														<img alt="" src="img/featured/7.jpg">
-														<div class="price"><span>$</span>160</div>
-													</a>
-													<div class="product-description">
-														<div class="functional-buttons">
-															<a href="#" title="Add to Cart">
-																<i class="fa fa-shopping-cart"></i>
-															</a>
-															<a href="#" title="Add to Wishlist">
-																<i class="fa fa-heart-o"></i>
-															</a>
-															<a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-																<i class="fa fa-compress"></i>
-															</a>
-														</div>
-													</div>
-												</div>
-												<div class="banner-bottom text-center">
-													<div class="banner-bottom-title">
-														<a href="#">Cold mountain</a>
-													</div>
-													<div class="rating-icon">
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star"></i>
-													</div>
-												</div>
-											</div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-6">
-											<div class="single-banner">
-												<div class="product-wrapper">
-													<a href="#" class="single-banner-image-wrapper">
-														<img alt="" src="img/featured/8.jpg">
-														<div class="price"><span>$</span>160</div>
-													</a>
-													<div class="product-description">
-														<div class="functional-buttons">
-															<a href="#" title="Add to Cart">
-																<i class="fa fa-shopping-cart"></i>
-															</a>
-															<a href="#" title="Add to Wishlist">
-																<i class="fa fa-heart-o"></i>
-															</a>
-															<a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-																<i class="fa fa-compress"></i>
-															</a>
-														</div>
-													</div>
-												</div>
-												<div class="banner-bottom text-center">
-													<div class="banner-bottom-title">
-														<a href="#">Twilight</a>
-													</div>
-													<div class="rating-icon">
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-													</div>
-												</div>
-											</div>
-                                        </div>
-                                        <div class="col-md-4 hidden-sm">
-											<div class="single-banner">
-												<div class="product-wrapper">
-													<a href="#" class="single-banner-image-wrapper">
-														<img alt="" src="img/featured/1.jpg">
-														<div class="price"><span>$</span>160</div>
-													</a>
-													<div class="product-description">
-														<div class="functional-buttons">
-															<a href="#" title="Add to Cart">
-																<i class="fa fa-shopping-cart"></i>
-															</a>
-															<a href="#" title="Add to Wishlist">
-																<i class="fa fa-heart-o"></i>
-															</a>
-															<a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-																<i class="fa fa-compress"></i>
-															</a>
-														</div>
-													</div>
-												</div>
-												<div class="banner-bottom text-center">
-													<div class="banner-bottom-title">
-														<a href="#">East of eden</a>
-													</div>
-													<div class="rating-icon">
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star icolor"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-													</div>
-												</div>
-											</div>
-                                        </div>
-                                    </div>
-                                </div>
+										</div>
+									@endforeach
+								</div>
+		{{-- Grid End --}}
+		{{-- List --}}
                                 <div id="menu1" class="tab-pane fade">
                                     <div class="row">
+										@foreach($book as $item)
                                         <div class="single-shop-product">
                                             <div class="col-xs-12 col-sm-5 col-md-4">
                                                 <div class="left-item">
                                                     <a href="single-product.html" title="East of eden">
-                                                        <img src="img/featured/1.jpg" alt="">
+                                                        <img src="{{asset($item->image_path)}}" alt="">
                                                     </a>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12 col-sm-7 col-md-8">
                                                 <div class="deal-product-content">
                                                     <h4>
-                                                        <a href="single-product.html" title="East of eden">East of eden</a>
+                                                        <a href="single-product.html" title="East of eden">{{$item->book_title}}</a>
                                                     </h4>
                                                     <div class="product-price">
-                                                        <span class="new-price">$ 140.00</span>
-                                                        <span class="old-price">$ 120.00</span>
+													<span class="new-price">{{number_format($item->sale_price)}} đ</span>
+                                                        <span class="old-price">{{number_format($item->book_price)}} đ</span>
                                                     </div>
                                                     <div class="list-rating-icon">
                                                         <i class="fa fa-star icolor"></i>
@@ -510,105 +311,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="single-shop-product">
-                                            <div class="col-xs-12 col-sm-5 col-md-4">
-                                                <div class="left-item">
-                                                    <a href="single-product.html" title="People of the book">
-                                                        <img src="img/featured/2.jpg" alt="">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-7 col-md-8">
-                                                <div class="deal-product-content">
-                                                    <h4>
-                                                        <a href="single-product.html" title="People of the book">People of the book</a>
-                                                    </h4>
-                                                    <div class="product-price">
-                                                        <span class="new-price">$ 140.00</span>
-                                                        <span class="old-price">$ 120.00</span>
-                                                    </div>
-                                                    <div class="list-rating-icon">
-                                                        <i class="fa fa-star icolor"></i>
-                                                        <i class="fa fa-star icolor"></i>
-                                                        <i class="fa fa-star icolor"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
-                                                    <p>Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!</p>
-                                                    <div class="availability">
-                                                        <span>In stock</span>
-                                                        <span><a href="cart.html">Add to cart</a></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-shop-product">
-                                            <div class="col-xs-12 col-sm-5 col-md-4">
-                                                <div class="left-item">
-                                                    <a href="single-product.html" title="The secret letter">
-                                                        <img src="img/featured/3.jpg" alt="">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-7 col-md-8">
-                                                <div class="deal-product-content">
-                                                    <h4>
-                                                        <a href="single-product.html" title="The secret letter">The secret letter</a>
-                                                    </h4>
-                                                    <div class="product-price">
-                                                        <span class="new-price">$ 140.00</span>
-                                                        <span class="old-price">$ 120.00</span>
-                                                    </div>
-                                                    <div class="list-rating-icon">
-                                                        <i class="fa fa-star icolor"></i>
-                                                        <i class="fa fa-star icolor"></i>
-                                                        <i class="fa fa-star icolor"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
-                                                    <p>Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!</p>
-                                                    <div class="availability">
-                                                        <span>In stock</span>
-                                                        <span><a href="cart.html">Add to cart</a></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-shop-product">
-                                            <div class="col-xs-12 col-sm-5 col-md-4">
-                                                <div class="left-item">
-                                                    <a href="single-product.html" title="Lone some dove">
-                                                        <img src="img/featured/4.jpg" alt="">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-7 col-md-8">
-                                                <div class="deal-product-content">
-                                                    <h4>
-                                                        <a href="single-product.html" title="Lone some dove">Lone some dove</a>
-                                                    </h4>
-                                                    <div class="product-price">
-                                                        <span class="new-price">$ 140.00</span>
-                                                        <span class="old-price">$ 120.00</span>
-                                                    </div>
-                                                    <div class="list-rating-icon">
-                                                        <i class="fa fa-star icolor"></i>
-                                                        <i class="fa fa-star icolor"></i>
-                                                        <i class="fa fa-star icolor"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
-                                                    <p>Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!</p>
-                                                    <div class="availability">
-                                                        <span>In stock</span>
-                                                        <span><a href="cart.html">Add to cart</a></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+										</div>
+										@endforeach
                                     </div>
-                                </div>
+								</div>
+		{{-- List End --}}
                             </div>
                         </div>
                     </div>

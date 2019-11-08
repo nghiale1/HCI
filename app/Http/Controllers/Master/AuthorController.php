@@ -44,7 +44,7 @@ class AuthorController extends Controller
         $this->config($config);
         $data = $this->model->web_insert($this->request);
         // dd($data);
-        return redirect('author/index')->with('success', 'Added Successfully');
+        return redirect('author')->with('success', 'Added Successfully');
     }
 
     public function edit($author_id)

@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-12">
                 <h3 class="box-title">Genre Table</h3>
                 <br>
                 <br>
@@ -15,19 +15,16 @@
                             <tr>
                                 <th>Thể loại nghệ thuật:</th>
                                 <th>Hạng mục sách:</th>
+                                <th>Loại sách:</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($data as $item)
                                 <tr>
-                                    <td>{{$item['genre_name']}}</td>
-                                    <td>
-                                        @foreach($item->categories as $t)
-                                            {{$item->categories['category_name']}}
-                                        @break
-                                        @endforeach
-                                    </td>
+                                    <td>{{$item->genre_name}}</td>
+                                    <td>{{$item->category_name}}</td>
+                                    <td>{{$item->type_name}}</td>
                                     <td>
                                         <form action="{{ route('genre.destroy', $item->genre_id) }}" method="post" class="delete_form">
                                             <a href="{{ action('Master\GenreController@edit',$item->genre_id) }}" class="btn btn-warning">Edit</a>

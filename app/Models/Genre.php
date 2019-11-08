@@ -47,4 +47,9 @@ class Genre extends BaseModel
     {
         return $this->belongsTo(Category::class, 'category_id', 'category_id');
     }
+
+    public function types()
+    {
+        return $this->hasManyThrough(Genre::class, Category::class, 'type_id', 'category_id', 'type_id', 'type_id');
+    }
 }

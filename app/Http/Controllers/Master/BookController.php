@@ -12,7 +12,9 @@ use App\Models\PublishingHouse;
 use App\Models\Tranlator;
 use App\Models\Type;
 use App\Models\Image;
+use App\Models\BookImage;
 use App\Models\Category;
+use App\Models\GenreBook;
 use App\Models\Genre;
 
 class BookController extends Controller
@@ -85,12 +87,16 @@ class BookController extends Controller
             $file_name,
             );
             $avatar_path = Image::insertGetId(array(
-                'image_path' => 'img.Product'.$file_name,
+                'image_path' => 'img/Product/'.$file_name,
             ));
             BookImage::insert([
                 'book_id' => $book_id,
                 'image_id' => $avatar_path,
                 'image_note' => 'Avatar',
+            ]);
+            GenreBook::insert([
+                'genre_id' => $request->genre_id,
+                'book_id' => $book_id,
             ]);
             if ($request->hasFile('photos')) {
                 foreach ($request->file('photos') as $value) {
@@ -100,7 +106,7 @@ class BookController extends Controller
                         $file_name,
                         );
                     $hinhanh = Image::insertGetId(array(
-                        'image_path' => 'img.Product'.$file_name,
+                        'image_path' => 'img/Product/'.$file_name,
                     ));
                     BookImage::insert([
                         'book_id' => $book_id,
@@ -121,15 +127,36 @@ class BookController extends Controller
         }
     }
 
-    public function edit($academy_id)
+    public function edit($book_id)
     {
-        $academy = Academy::findOrFail($academy_id);
+        $publishing_house = PublishingHouse::all();
+        $book_company = BookCompany::all();
+        $genre = Genre::all();
+        $book = Book::join('sales', 'sales.sale_id', 'books.sale_id')
+        ->join('authors', 'authors.author_id', 'books.author_id')
+        ->leftJoin('tranlators', 'tranlators.tranlator_id', 'books.tranlator_id')
+        ->join('publishing_houses', 'publishing_houses.publishing_house_id', 'books.publishing_house_id')
+        ->join('book_companies', 'book_companies.book_company_id', 'books.book_company_id')
+        ->join('genre_books', 'genre_books.book_id', 'books.book_id')
+        ->join('genres', 'genres.genre_id', 'genre_books.genre_id')
+        ->join('book_images', 'book_images.book_id', 'books.book_id')
+        ->join('images', 'images.image_id', 'book_images.image_id')
+        ->where([['books.book_id', $book_id], ['book_images.image_note', 'Avatar']])->first();
 
-        return view('pages.admins.sach.edit', compact('book', 'academy_id'));
+        $image = Book::join('book_images', 'book_images.book_id', 'books.book_id')
+        ->join('images', 'images.image_id', 'book_images.image_id')
+        ->where([['books.book_id', $book_id], ['book_images.image_note', 'Image']])->get();
+        // dd($book);
+        // dd($image[0]);
+        // dd($image[0]->image_path);
+        // $book = Book::findOrFail($book_id);
+
+        return view('pages.admins.books.edit', compact('book', 'book_id', 'genre', 'publishing_house', 'book_company', 'image'));
     }
 
-    public function update(Request $request, $academy_id)
+    public function update(Request $request, $book_id)
     {
+        dd($request);
         $academy = Academy::find($academy_id);
         //TODO:  Nhan du lieu tu form cu
         $academy->academy_code = $request->get('academy_code');
@@ -143,10 +170,10 @@ class BookController extends Controller
     public function destroy($book_id)
     {
         $data = Book::findOrFail($book_id);
-        dd($data);
         $remove_image = Book::join('book_images', 'book_images.book_id', 'books.book_id')
         ->join('images', 'images.image_id', 'book_images.image_id')->get();
-
+        BookImage::where('book_image_id', $remove_image->book_image_id)->delete();
+        Image::where('image_id', $remove_image->image_id)->delete();
         $data->delete();
         // dd($data);
         return redirect('book')->with('success', 'Xóa thành công!');

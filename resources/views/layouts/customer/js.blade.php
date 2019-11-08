@@ -29,4 +29,12 @@
 		<script src="{{asset('lib/js/jquery.nivo.slider.js')}}" type="text/javascript"></script>
 		<script src="{{asset('lib/home.js')}}" type="text/javascript"></script>
 		<!-- main js -->
-        <script src="{{asset('js/main.js')}}"></script>
+		<script src="{{asset('js/main.js')}}"></script>
+		<script src="{{asset('js/extention/choices.js')}}"></script>
+<script>
+const choices = new Choices('[data-trigger]',
+      {
+        searchEnabled: false,
+        itemSelectText: '',
+      });
+</script>

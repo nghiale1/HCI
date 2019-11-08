@@ -47,4 +47,9 @@ class Category extends BaseModel
     {
         return $this->belongsTo(Type::class, 'type_id', 'type_id');
     }
+
+    public function genres()
+    {
+        return $this->hasMany(Genre::class, 'category_id', 'category_id');
+    }
 }

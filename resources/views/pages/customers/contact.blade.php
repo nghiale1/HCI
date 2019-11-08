@@ -97,7 +97,7 @@
 			  var mapOptions = {
 				zoom: 16,
 				scrollwheel: false,
-				center: new google.maps.LatLng(23.763474, 90.431483)
+				center: new google.maps.LatLng(10.0298463, 105.7638958,19)
 			  };
 			  var map = new google.maps.Map(document.getElementById('googleMap'),
 				  mapOptions);

@@ -15,7 +15,7 @@ class CreateAuthorsTable extends Migration
             Schema::create('authors', function (Blueprint $table) {
                 $table->increments('author_id')->comment('id tác giả');
                 $table->string('author_name', 50)->comment('tên tác giả');
-                $table->text('author_info')->comment('thông tin tác giả');
+                $table->text('author_info')->nullable()->comment('thông tin tác giả');
 
                 // log time
                 $table->timestamp('created_at')
