@@ -18,12 +18,8 @@ class GenreController extends Controller
     // Hàm đỗ dữ liệu của một Khoa ra trang index
     public function index(Request $request)
     {
-        $config = [
-            'model' => new Genre(),
-            'request' => $request,
-        ];
-        $this->config($config);
-        $data = $this->model->web_index($this->request);
+        $data = Genre::join('categories', 'categories.category_id', 'genres.category_id')
+        ->join('types', 'types.type_id', 'categories.type_id')->get();
 
         return view('pages.admins.genres.index', ['data' => $data]);
     }

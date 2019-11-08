@@ -44,9 +44,11 @@ class Controller extends BaseController
     // Custom rule message notification validate error (biến để lưu các thông điệp lỗi khi gặp lỗi xử lý)
     public $custom_msg = [];
 
-    // Status of data empty on respone 
+    // Status of data empty on respone
     // trạng thái của dữ liệu rỗng khi trên respone
     public $only_code = true;
+
+    public $ck = false;
 
     // Status base (success, validate, exception")
     public $status = 'SUCCESS';
@@ -82,15 +84,15 @@ class Controller extends BaseController
      */
     public function config($option)
     {
-        isset($option['rule'])          ? $this->rule           = $option['rule']           : '';           // rule check validate
-        isset($option['request'])       ? $this->request        = $option['request']        : '';          // rule check validate
-        isset($option['model'])         ? $this->model          = $option['model']          : '';           // model class
-        isset($option['key'])           ? $this->key            = $option['key']            : '';          // key of data on response
-        isset($option['data'])          ? $this->data           = $option['data']           : '';            // data of response
-        isset($option['valid_msg'])     ? $this->valid_msg      = $option['valid_msg']      : '';            // data of valid_msg
-        isset($option['custom_msg'])    ? $this->custom_msg     = $option['custom_msg']     : '';           // data of custom_msg
-        isset($option['only_code'])     ? $this->only_code      = $option['only_code']      : '';      // only_code = true => response not have data value
-        isset($option['status'])        ? $this->status         = $option['status']         : '';           // code 200, 400 or 500 of response
+        isset($option['rule']) ? $this->rule = $option['rule'] : '';           // rule check validate
+        isset($option['request']) ? $this->request = $option['request'] : '';          // rule check validate
+        isset($option['model']) ? $this->model = $option['model'] : '';           // model class
+        isset($option['key']) ? $this->key = $option['key'] : '';          // key of data on response
+        isset($option['data']) ? $this->data = $option['data'] : '';            // data of response
+        isset($option['valid_msg']) ? $this->valid_msg = $option['valid_msg'] : '';            // data of valid_msg
+        isset($option['custom_msg']) ? $this->custom_msg = $option['custom_msg'] : '';           // data of custom_msg
+        isset($option['only_code']) ? $this->only_code = $option['only_code'] : '';      // only_code = true => response not have data value
+        isset($option['status']) ? $this->status = $option['status'] : '';           // code 200, 400 or 500 of response
     }
 
     /** Check validate of request
@@ -140,7 +142,6 @@ class Controller extends BaseController
     public function response()
     {
         if ($this->only_code) { // return code
-
             return $this->response::response();
         }
 

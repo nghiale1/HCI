@@ -90,12 +90,13 @@ th.label {
                             <!-- Nav tabs -->
                             
                             <ul class="product-tabs" role="tablist">
+                                {{-- {{dd($book_image)}} --}}
                                 @if($book_image != null)
-                                @foreach($book_image as $item)
-                                <li role="presentation" class="active"><a href="{{asset($item->image_path)}}" aria-controls="one" role="tab" data-toggle="tab"><img src="{{asset($item->image_path)}}" alt="" id="book_image"></a></li>
-                                {{-- <li role="presentation"><a href="#two" aria-controls="two" role="tab" data-toggle="tab"><img src="{{asset($item->image_path)}}" alt=""></a></li>
-                                <li role="presentation"><a href="#three" aria-controls="three" role="tab" data-toggle="tab"><img src="{{asset($item->image_path)}}" alt=""></a></li> --}}
-                                @endforeach
+                                    @foreach($book_image as $item)
+                                    <li role="presentation" class="active"><a href="{{asset($item->image_path)}}" aria-controls="one" role="tab" data-toggle="tab"><img src="{{asset($item->image_path)}}" alt="" id="book_image"></a></li>
+                                    {{-- <li role="presentation"><a href="#two" aria-controls="two" role="tab" data-toggle="tab"><img src="{{asset($item->image_path)}}" alt=""></a></li>
+                                    <li role="presentation"><a href="#three" aria-controls="three" role="tab" data-toggle="tab"><img src="{{asset($item->image_path)}}" alt=""></a></li> --}}
+                                    @endforeach
                                 @endif
                             </ul>
                         </div>

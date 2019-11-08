@@ -12,12 +12,13 @@ use App\Models\PublishingHouse;
 use App\Models\Tranlator;
 use App\Models\Type;
 use App\Models\Image;
+use App\Models\User;
 use App\Models\BookImage;
 use App\Models\Category;
 use App\Models\GenreBook;
 use App\Models\Genre;
 
-class BookController extends Controller
+class LoginController extends Controller
 {
     // Hàm khởi tạo.
     public function __construct()
@@ -26,17 +27,24 @@ class BookController extends Controller
     }
 
     // Hàm đỗ dữ liệu của một Khoa ra trang index
-    public function index(Request $request)
+    public function login(Request $request)
     {
-        $config = [
-            'model' => new Book(),
-            'request' => $request,
-        ];
-        $this->config($config);
-        $data = $this->model->web_index($this->request);
-        // dd($data);
+        return view('Auth.login');
+    }
 
-        return view('pages.admins.books.index', ['data' => $data]);
+    public function post_login(Request $request)
+    {
+        // dd($request);
+        $email = $request->email;
+        $password = md5($request->password);
+        // $password = bcrypt($request->password);
+        // dd($password);
+        $check = User::where([['user_mail', $email], ['user_password', $password]])->first();
+        // $check = User::where('user_mail', $email)->first();
+        // dd($check);
+        if ($check != null) {
+        } else {
+        }
     }
 
     // TODO: Mỗi function chỉ thực hiện 1 nhiệm vụ. Cho người khác dễ sửa chửa code của mình.

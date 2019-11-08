@@ -1,7 +1,45 @@
 @extends('layouts.customer')
 @section('content')
-@include('layouts.customer.slider')
+{{-- @include('layouts.customer.slider') --}}
 <style>
+    .layer-1 {
+    text-shadow: 0 0 3px black;
+}
+.layer-2 {
+    text-shadow: 0 0 3px black;
+}
+        .layer-5{
+            margin-top: 100px;
+        }  
+        .layer-5 .title-5 input {
+            border: 0.5px solid #ddd;
+            border-bottom-left-radius: 30px;
+            border-top-left-radius: 30px;
+            color: #444444;
+            height: 50px;
+            line-height: 50px;
+            padding-left: 20px;
+            position: relative;
+            width: 55%;
+        }
+        .layer-5 .title-5 input:focus{
+            outline: none;
+        }
+        .layer-5 form.title-5 button {
+            background: #40acd7 none repeat scroll 0 0;
+            border: medium none;
+            border-bottom-right-radius: 30px;
+            border-top-right-radius: 30px;
+            font-size: 22px;
+            height: 50px;
+            line-height: 22px;
+            position: absolute;
+            width: 70px;
+        }
+        .layer-5 form {
+    /* animation: 0.8s ease-in-out 2.4s normal backwards 1 running fadeInUp; */
+    animation: none;
+        }
 #avatar_product{
     max-width: 270px;
     
@@ -48,7 +86,7 @@ span.p-sale-label.discount-l-fs {
     right: 0;
     bottom: 5px;
 }
-.book_price {
+.book_price {                               
     position: absolute;
     left: 0;
     right: 0;
@@ -96,7 +134,7 @@ span.p-sale-label.discount-l-fs {
       </script>
     		<!-- Featured Product Area Start -->
             <div class="featured-product-area section-padding">
-                    <h2 class="section-title">Flash Sale</h2>
+                    <h2 class="section-title" style="color:red">Flash Sale</h2>
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
@@ -178,7 +216,7 @@ span.p-sale-label.discount-l-fs {
                 </div>
                 <!-- Featured Product Area End -->
                 <!-- Featured Product Area Start -->
-		<div class="featured-product-area section-padding">
+		    <div class="featured-product-area section-padding">
                 <h2 class="section-title">Sản phẩm nổi bật</h2>
                 <div class="container">
                     <div class="row">
