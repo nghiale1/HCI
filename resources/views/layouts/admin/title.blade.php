@@ -1,1 +1,1 @@
-<title>AdminLTE 2 | Dashboard</title>
+<title>Whilien52 | Admin</title>

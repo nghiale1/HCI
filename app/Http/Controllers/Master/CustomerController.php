@@ -52,6 +52,20 @@ class CustomerController extends Controller
 
         return view('pages.customers.index2', compact('book', 'category', 'genre', 'count'));
     }
+    public function wishlist(Request $request){
+        $book = Book::join('book_images', 'book_images.book_id', 'books.book_id')
+        ->join('images', 'images.image_id', 'book_images.image_id')
+        ->join('sales', 'sales.sale_id', 'books.sale_id')
+        ->where('book_images.image_note', 'Avatar')->get();
+        $category = Category::all();
+        foreach ($category as $cate) {
+            $genre[$cate->category_id] = Genre::where('category_id', $cate->category_id)->get();
+            $count[$cate->category_id] = Genre::where('category_id', $cate->category_id)->count();
+        }
+        // dd($genre[1]);
+
+        return view('pages.customers.wishlist', compact('book', 'category', 'genre', 'count'));
+    }
 
     public function single($book_id)
     {

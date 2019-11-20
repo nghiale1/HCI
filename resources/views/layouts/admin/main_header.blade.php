@@ -121,7 +121,7 @@
             <!-- The user image in the navbar-->
             <img src="{{asset('dist/img/nghia.jpg')}}" class="user-image" alt="User Image">
             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-            <span class="hidden-xs">Alexander Pierce</span>
+            <span class="hidden-xs">Lê Minh Nghĩa</span>
           </a>
           <ul class="dropdown-menu">
             <!-- The user image in the menu -->
@@ -129,7 +129,7 @@
               <img src="{{asset('dist/img/nghia.jpg')}}" class="img-circle" alt="User Image">
 
               <p>
-                Alexander Pierce - Web Developer
+                Lê Minh Nghĩa - Web Developer
                 <small>Member since Nov. 2012</small>
               </p>
             </li>

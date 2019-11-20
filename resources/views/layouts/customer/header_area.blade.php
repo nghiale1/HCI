@@ -166,17 +166,17 @@
                                     <div class="cart-product">
                                         <div class="cart-product-image">
                                             <a href="single-product.html">
-                                                <img src="{{asset('img/shop/1.jpg')}}" alt="">
+                                                <img src="{{asset('/img/Product/8935235213746.jpg')}}" alt="">
                                             </a>
                                         </div>
                                         <div class="cart-product-info">
                                             <p>
                                                 <span>1</span>
                                                 x
-                                                <a href="single-product.html">East of eden</a>
+                                                <a href="single-product.html">Nhà Giả Kim</a>
                                             </p>
-                                            <a href="single-product.html">S, Orange</a>
-                                            <span class="cart-price">$ 140.00</span>
+                                            <a href="single-product.html">Paulo Coelho</a>
+                                            <span class="cart-price">55,200 đ</span>
                                         </div>
                                         <div class="cart-product-remove">
                                             <i class="fa fa-times"></i>
@@ -185,17 +185,17 @@
                                     <div class="cart-product">
                                         <div class="cart-product-image">
                                             <a href="single-product.html">
-                                                <img src="{{asset('img/shop/1.jpg')}}" alt="">
+                                                <img src="{{asset('/img/Product/9558a365adde6688d4c71a200d78310c.jpg')}}" alt="">
                                             </a>
                                         </div>
                                         <div class="cart-product-info">
                                             <p>
                                                 <span>1</span>
                                                 x
-                                                <a href="single-product.html">East of eden</a>
+                                                <a href="single-product.html">Đắc Nhân Tâm (Khổ Lớn)</a>
                                             </p>
-                                            <a href="single-product.html">S, Orange</a>
-                                            <span class="cart-price">$ 140.00</span>
+                                            <a href="single-product.html">Dale Carnegie</a>
+                                            <span class="cart-price">51,680 đ</span>
                                         </div>
                                         <div class="cart-product-remove">
                                             <i class="fa fa-times"></i>
@@ -203,17 +203,17 @@
                                     </div>
                                     <div class="total-cart-price">
                                         <div class="cart-product-line fast-line">
-                                            <span>Shipping</span>
-                                            <span class="free-shiping">$10.50</span>
+                                            <span>Phí vận chuyển</span>
+                                            <span class="free-shiping">20,000 đ</span>
                                         </div>
                                         <div class="cart-product-line">
-                                            <span>Total</span>
-                                            <span class="total">$ 140.00</span>
+                                            <span>Tổng cộng</span>
+                                            <span class="total">126,880 đ</span>
                                         </div>
                                     </div>
                                     <div class="cart-checkout">
                                         <a href="checkout.html">
-                                            Check out
+                                            Thanh toán
                                             <i class="fa fa-chevron-right"></i>
                                         </a>
                                     </div>

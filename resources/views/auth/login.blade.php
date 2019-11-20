@@ -81,16 +81,16 @@
                     <div class="col-md-6 col-sm-6">
                         <form action="{{ route('login/post') }}" class="create-account-form" method="post">
                             <h2 class="heading-title">
-                                CREATE AN ACCOUNT
+                                Tạo tài khoản
                             </h2>
                             <p class="form-row">
-                                <input type="email" placeholder="Email address">
+                                <input type="email" placeholder="Địa chỉ email">
                             </p>
                             <div class="submit">					
                                 <button name="submitcreate" id="submitcreate" type="submit" class="btn-default">
                                     <span>
                                         <i class="fa fa-user left"></i>
-                                        Create an account
+                                        Tạo
                                     </span>
                                 </button>
                             </div>
@@ -100,22 +100,22 @@
                        <form action="{{ route('login/post') }}" class="create-account-form" method="post">
                         @csrf
                             <h2 class="heading-title">
-                                ALREADY RESIGTERED?
+                                Bạn đã có tài khoản?
                             </h2>
                             <p class="form-row">
-                                <input type="email" placeholder="Email address" name="email">
+                                <input type="email" placeholder="Địa chỉ email" name="email">
                             </p>
                             <p class="form-row">
                                 <input type="password" placeholder="Password" name="password">
                             </p>
                             <p class="lost-password form-group">
-                                <a href="#" rel="nofollow">Forgot your password?</a>
+                                <a href="#" rel="nofollow">Quên mật khẩu?</a>
                             </p> 
                             <div class="submit">					
                                 <button name="submitcreate" id="submitcreate" type="submit" class="btn-default">
                                     <span>
                                         <i class="fa fa-user left"></i>
-                                        SING IN
+                                        Đăng nhập
                                     </span>
                                 </button>
                             </div>                          

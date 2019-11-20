@@ -114,9 +114,9 @@ th.label {
                             </div>
                         <h2>{{$book_avatar->book_title}}</h2>
                             <div class="availability">
-                                <span>In stock</span>
+                                <span>Còn hàng</span>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+                            <p>Nhà giả kim là một cuốn sách được xuất bản lần đầu ở Brasil năm 1988 và là cuốn sách nổi tiếng nhất của nhà văn Paulo Coelho. Nó được dịch ra 67 ngôn ngữ và bán ra tới 65 triệu bản, trở thành một trong những quyển sách bán chạy nhất mọi thời đại. Đây là một câu chuyện thúc giục độc giả theo đuổi giấc mơ của mình. </p>
                             <div class="single-product-price">
                                 <h1 style="    margin-bottom: 5px;">{{number_format($book_avatar->sale_price)}} đ</h1>
                                 <br>
@@ -133,19 +133,19 @@ th.label {
       {{-- add to cart                              --}}
                                     <a class="cart-btn btn-default" href="cart.html">
                                         <i class="flaticon-shop"></i>
-                                        Add to cart
+                                        Thêm vào giỏ hàng
                                     </a>
                                </span>
                             </div>
                             <div class="add-to-wishlist">
                                 <a class="wish-btn" href="cart.html">
                                     <i class="fa fa-heart-o"></i>
-                                    ADD TO WISHLIST
+                                    Thêm vào danh sách yêu thích
                                 </a>
                             </div>
                             <div class="single-product-categories">
-                               <label>Categories:</label>
-                                <span>e-book, biological, business</span>
+                               <label>Thể loại:</label>
+                                <span>Sách tiếng Việt, sách văn học, top seller</span>
                             </div>
                             <div class="social-share">
                                 <label>Share: </label>
@@ -158,7 +158,7 @@ th.label {
                             <div id="product-comments-block-extra">
 								<ul class="comments-advices">
 									<li>
-										<a href="#" class="open-comment-form">Write a review</a>
+										<a href="#" class="open-comment-form">Bình luận</a>
 									</li>
 								</ul>
 							</div>
@@ -290,7 +290,7 @@ th.label {
         <!-- Single Product Area End -->
         <!-- Related Product Area Start -->
         <div class="related-product-area">
-            <h2 class="section-title">RELATED PRODUCTS</h2>
+            <h2 class="section-title">Sản phẩm liên quan</h2>
             <div class="container">
                     <div class="row">
                         <div class="col-md-12">

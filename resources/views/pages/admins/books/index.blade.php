@@ -1,5 +1,10 @@
 @extends('layouts.admin')
 @section('content')
+<style>
+    a.btn.btn-warning {
+        /* width: 62px; */
+    }
+    </style>
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
@@ -22,7 +27,7 @@
                                 <th>Nhà xuất bản:</th>
                                 <th>Nhà phát hành:</th>
                                 <th>Ngày xuất bản:</th>
-                                <th>Action</th>
+                                <th>Tác vụ:</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -33,16 +38,16 @@
                                     <td>{{$item['book_price']}}</td>
                                     <td>{{$item->sales['sale_price']}}</td>
                                     <td>{{$item->authors['author_name']}}</td>
-                                    <td>{{$item->tranlators['tranlators_name']}}</td>
+                                    <td>{{$item->tranlators['tranlator_name']}}</td>
                                     <td>{{$item->publishing_houses['publishing_house_name']}}</td>
-                                    <td>{{$item->publishing_houses['publishing_house_name']}}</td>
+                                    <td>{{$item->book_companies['book_company_name']}}</td>
                                     <td>{{$item['book_releasedate']}}</td>
 
                                     <td>
                                         <form action="{{ route('book.destroy', $item->book_id) }}" method="post" class="delete_form">
-                                            <a href="{{ action('Master\BookController@edit',$item->book_id) }}" class="btn btn-warning">Edit</a>
+                                            <a href="{{ action('Master\BookController@edit',$item->book_id) }}" class="btn btn-warning">Sửa</a>
                                             @csrf
-                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                            <button type="submit" class="btn btn-danger">Xóa</button>
                                         </form>
                                     </td>
                                 </tr>

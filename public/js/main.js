@@ -150,15 +150,15 @@ Blog list owl active
 ------------------------------ */  
 	  $( "#slider-range" ).slider({
 	   range: true,
-	   min: 40,
-	   max: 600,
+	   min: 0,
+	   max: 500000,
 	   values: [ 60, 496 ],
 	   slide: function( event, ui ) {
-		$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+		$( "#amount" ).val(  ui.values[ 0 ] + " VNĐ - " + ui.values[ 1 ] +" VNĐ" );
 	   }
 	  });
-	  $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-	   " - $" + $( "#slider-range" ).slider( "values", 1 ) );      
+	  $( "#amount" ).val(  $( "#slider-range" ).slider( "values", 0 ) +
+	   " VNĐ - " + $( "#slider-range" ).slider( "values", 1 )+" VNĐ" );      
 /*----------------------------------
  Create an account toggle function 
  ----------------------------------*/

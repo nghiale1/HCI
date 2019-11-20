@@ -99,11 +99,11 @@ button, input, select, textarea {
             <div class="row">
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Lưu</button>
                         
                     </div> 
                 
-                </div><a href="{{route('book.index')}}" class="btn btn-default">Back</a>
+                </div><a href="{{route('book.index')}}" class="btn btn-default">Trở lại</a>
             </div>
                
         {{-- </form> --}}

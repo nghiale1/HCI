@@ -50,7 +50,7 @@ button, input, select, textarea {
                                     <div>Giá</div>
                                     <input type="number"  name="book_price" id="book_price" placeholder=" VNĐ">
                                     <div>Giá khuyến mãi</div>
-                                    <input type="number"  name="sale_price" id="sale_price" placeholder=" VNĐ">
+                                    <input type="text"  name="sale_price" id="sale_price" placeholder=" ">
                                     <div>Ngày phát hành</div>
                                     <input type="text"  name="book_releasedate" id="book_releasedate" >
                                     <div>Thể loại</div>

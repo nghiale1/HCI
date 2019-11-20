@@ -29,7 +29,7 @@
     
     <!-- Sidebar Menu -->
     <ul class="sidebar-menu" data-widget="tree">
-      <li class="header">HEADER</li>
+      <li class="header">Chức năng</li>
       <!-- Optionally, you can add icons to the links -->
       
       <li class="treeview">
@@ -50,6 +50,11 @@
       </li>
 
       <li><a href="{{route('book.index')}}"><i class="fa fa-link"></i> <span>Sách</span></a></li>
+      <li><a href="{{route('book.index')}}"><i class="fa fa-link"></i> <span>Đơn hàng</span></a></li>
+      <li><a href="{{route('book.index')}}"><i class="fa fa-link"></i> <span>Mã giảm giá</span></a></li>
+      <li><a href="{{route('book.index')}}"><i class="fa fa-link"></i> <span>Sự kiện</span></a></li>
+      <li><a href="{{route('book.index')}}"><i class="fa fa-link"></i> <span>Thành viên</span></a></li>
+      <li><a href="{{route('book.index')}}"><i class="fa fa-link"></i> <span>Thống kê</span></a></li>
       
     </ul>
     <!-- /.sidebar-menu -->

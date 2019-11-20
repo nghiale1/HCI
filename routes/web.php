@@ -36,26 +36,31 @@ Route::group(['middleware' => ['checklogin']], function () {
     Route::get('/', "Master\CustomerController@index")->name('customer/index');
     Route::get('/shop', "Master\CustomerController@shop")->name('customer/shop');
     Route::get('/index2', "Master\CustomerController@index2")->name('customer/index2');
+    Route::get('/wishlist', "Master\CustomerController@wishlist")->name('customer/wishlist');
     Route::get('/single-product/{book_id}', "Master\CustomerController@single")->name('customer/single');
+    
     Route::get('/404', function () {
         return view('pages.customers.404');
         // Route::get('/', "Master\CustomerController@index")->name('customer/index');
     });
+    
+    Route::get('/statistic', function () {
+        return view('pages.admins.statistic.index');
+    })->name('statistic');
+    Route::get('/404', function () {
+        return view('pages.admins.404.index');
+    })->name('404');
     Route::get('/about', function () {
         return view('pages.customers.about');
-        // Route::get('/', "Master\CustomerController@index")->name('customer/index');
     })->name('about');
     Route::get('/cart', function () {
         return view('pages.customers.cart');
-        // Route::get('/', "Master\CustomerController@index")->name('customer/index');
     });
     Route::get('/checkout', function () {
         return view('pages.customers.checkout');
-        // Route::get('/', "Master\CustomerController@index")->name('customer/index');
     });
     Route::get('/contact', function () {
         return view('pages.customers.contact');
-        // Route::get('/', "Master\CustomerController@index")->name('customer/index');
     })->name('contact');
     // Route::get('/loginn', function () {
     //     return view('pages.customers.login')->name('loginn');
@@ -77,10 +82,7 @@ Route::group(['middleware' => ['checklogin']], function () {
         return view('pages.customers.thank-you');
         // Route::get('/', "Master\CustomerController@index")->name('customer/index');
     });
-    Route::get('/wishlist', function () {
-        return view('pages.customers.wishlist');
-        // Route::get('/', "Master\CustomerController@index")->name('customer/index');
-    });
+
 
     Auth::routes();
 
@@ -190,6 +192,10 @@ Route::group(['middleware' => ['checklogin']], function () {
         // DELETE
         Route::post('/destroy/{book_id}', 'Master\BookController@destroy')->name('book.destroy');
     });
+    // Route::prefix('statistic')->group(function () {
+
+    //     return view('pages.admins.statistic.index');
+    // });
 
     // Route::prefix('customer')->group(function () {
 //     Route::get('/', "Master\BookController@index")->name('customer.index');
