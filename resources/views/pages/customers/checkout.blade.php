@@ -11,7 +11,7 @@
 									<h4 class="panel-title">
 										<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 										   <span>1</span>
-										   Checkout Method
+										   Đăng nhập
 										</a>
 									</h4>
 								</div>
@@ -20,40 +20,40 @@
 										<div class="row">
 											<div class="col-md-6 col-sm-6">
                                                 <div class="checkout-collapse-inner">
-                                                    <h2 class="collapse-title">CHECKOUT AS A GUEST OR REGISTER</h2>
-                                                    <h4 class="collapse-sub-title">Register with us for future convenience:</h4>
+                                                    <h2 class="collapse-title">Thanh toán không đăng nhập</h2>
+                                                    <h4 class="collapse-sub-title">Đăng ký thành viên cho các lần thanh toán sau:</h4>
                                                     <form action="#">
                                                         <div class="check-register">
                                                             <input type="radio" />
-                                                            <label>Checkout as Guest</label>
+                                                            <label>Thanh toán </label>
                                                         </div>
                                                         <div class="check-register">
                                                             <input type="radio" />
-                                                            <label>Register</label>
+                                                            <label>Đăng ký</label>
                                                         </div>													
                                                     </form>
-                                                    <p>Register and save time!</p>
-                                                    <p>Register with us for future convenience:</p>
-                                                    <p>Fast and easy check out</p>
-                                                    <p>Easy access to your order history and status</p>
-                                                    <button class="btn btn-default btn-checkout">CONTINUE</button>
+                                                    <p>Đăng ký và tiết kiệm thời gian!</p>
+                                                    <p>Đăng ký để thuận tiện thanh toán sau này:</p>
+                                                    <p>Thanh toán nhanh và dễ dàng hơn</p>
+                                                    <p>Dễ dàng truy cập vào lịch sử đặt hàng và trạng thái đơn hàng</p>
+                                                    <button class="btn btn-default btn-checkout">Tiếp túc</button>
                                                 </div>
 											</div>
 											<div class="col-md-6 col-sm-6">
 											<div class="checkout-collapse-inner">
-												<h2 class="collapse-title">LOGIN</h2>
-												<h4 class="collapse-sub-title">Already registered?</h4>
-												<p class="login-info">Please log in below:</p>
+												<h2 class="collapse-title">Đăng nhập</h2>
+												<h4 class="collapse-sub-title">Bạn đã có tài khoản?</h4>
+												<p class="login-info">Vui lòng điền đầy đủ thông tin bên dưới:</p>
 												<form action="#">
 													<div class="form-row">
-														<input type="email" placeholder="Email Address*"/>
+														<input type="email" placeholder="Địa chỉ Email*"/>
 													</div>
 													<div class="form-row">
-														<input type="password" placeholder="Password*"/>
+														<input type="password" placeholder="Mật khẩu*"/>
 													</div>	
 													<div class="check-register login-button">
-														<a href="#">forgot your password?</a>
-														<input class="btn btn-default" type="submit" value="LOGIN"/>
+														<a href="#">Quên mật khẩu?</a>
+														<input class="btn btn-default" type="submit" value="Đăng nhập"/>
 													</div>												
 												</form>
 											</div>
@@ -67,14 +67,14 @@
 									<h4 class="panel-title">
 										<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
 										   <span>2</span>
-										   Billing Information
+										   Địa chỉ nhận hàng
 										</a>
 									</h4>
 								</div>
 								<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 									<div class="panel-body">
 										<div class="row">
-											<div class="col-md-12">
+											{{-- <div class="col-md-12">
 												<div class="shop-select">
 													<label>Country <span class="required">*</span></label>
 													<select>
@@ -88,25 +88,25 @@
 														<option value="audi5">Dominican Republic</option>
 													</select> 										
 												</div>	
-											</div>	
+											</div>	 --}}
 											<div class="col-md-6">
 												<p class="form-row">
-													<input type="text" placeholder="First Name *">
+													<input type="text" placeholder="Họ *">
 												</p>
 											</div>	
 											<div class="col-md-6">
 												<p class="form-row">
-													<input type="text" placeholder="Last Name *">
+													<input type="text" placeholder="Tên *">
 												</p>
 											</div>	
-											<div class="col-md-12">
+											{{-- <div class="col-md-12">
 												<p class="form-row">
 													<input type="text" placeholder="Company Name">
 												</p>
-											</div>	
-											<div class="col-md-12">
+											</div>	 --}}
+											{{-- <div class="col-md-12">
 												<p class="form-row">
-													<input type="text" placeholder="Street address">
+													<input type="text" placeholder="Địa chỉ">
 												</p>
 											</div>
 											<div class="col-md-12">
@@ -123,27 +123,27 @@
 												<p class="form-row">
 													<input type="text" placeholder="Postcode / Zip">
 												</p>
-											</div>
+											</div> --}}
 											<div class="col-md-6">
 												<p class="form-row">
-													<input type="text" placeholder="Email Address *">
+													<input type="text" placeholder="Địa chỉ Email *">
 												</p>
 											</div>
 											<div class="col-md-6">
 												<p class="form-row">
-													<input type="text" placeholder="Phone *">
+													<input type="text" placeholder="Số điện thoại *">
 												</p>
 											</div>
 											<div class="col-md-12">
 												<label class="checbox-info">
 													<input type="checkbox" id="cbox">
-													Create an account?
+													Tạo tài khoản mới?
 												</label>
 												<div id="cbox_info">
-													<p>Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
+													<p>Tạo một tài khoản bằng cách nhập thông tin dưới đây. Nếu bạn là khách hàng cũ, vui lòng đăng nhập ở đầu trang.</p>
 													<p class="form-row form-row-phone">
-														<label>Phone<span class="required">*</span></label>
-														<input type="text" placeholder="Phone">
+														<label>Số điện thoại<span class="required">*</span></label>
+														<input type="text" placeholder="Số điện thoại">
 													</p>									
 												</div>
 											</div>											
@@ -156,7 +156,7 @@
 									<h4 class="panel-title">
 										<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
 										   <span>3</span>
-										   Shopping Method
+										   Ghi chú
 										</a>
 									</h4>
 								</div>
@@ -165,7 +165,7 @@
 										<div class="different-address">
 											<div class="ship-different-title">
 												<h3>
-													<label>Ship to a different address?</label>
+													<label>Gửi đến địa chỉ khác?</label>
 													<input type="checkbox" id="ship-box">
 												</h3>
 											</div>
@@ -232,8 +232,8 @@
 												</div>											
 											</div>
 											<div class="order-notes">
-												<label>Order Notes</label>
-												<textarea placeholder="Notes about your order, e.g. special notes for delivery." rows="10" cols="30" id="checkout-mess"></textarea>
+												<label>Ghi chú</label>
+												<textarea placeholder="Ghi chú về đơn hàng của bạn, ví dụ: ghi chú đặc biệt để giao hàng." rows="10" cols="30" id="checkout-mess"></textarea>
 											</div>
 										</div>								
 									</div>
@@ -244,7 +244,7 @@
 									<h4 class="panel-title">
 										<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
 										   <span>4</span>
-										   Payment Information
+										   Phương thức thanh toán
 										</a>
 									</h4>
 								</div>
@@ -255,16 +255,16 @@
 												<ul class="form-list">
 													<li class="control">
 														<input type="radio" class="radio" title="Check / Money order" name="payment[method]" id="p_method_checkmo">
-														<label for="p_method_checkmo">Check / Money order </label>
+														<label for="p_method_checkmo">Thanh toán khi nhận hàng </label>
 													</li>
 													<li class="control">
 														<input type="radio" class="radio" title="Credit Card (saved)" name="payment[method]" id="p_method_ccsave">
-														<label for="p_method_ccsave">Credit Card (saved) </label>
+														<label for="p_method_ccsave">Thanh toán bằng thẻ </label>
 													</li>
 												</ul>
 											</form>
 											<div class="buttons-set">
-												<button class="btn btn-default">CONTINUE</button>
+												<button class="btn btn-default">Tiếp túc</button>
 											</div>
 										</div>
 									</div>
@@ -275,7 +275,7 @@
 									<h4 class="panel-title">
 										<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
 										   <span>5</span>
-										   Order Review
+										   Xác nhận
 										</a>
 									</h4>
 								</div>
@@ -286,48 +286,48 @@
 												<table class="data-table" id="checkout-review-table">
 													<thead>
 														<tr>
-															<th rowspan="1">Product Name</th>
-															<th colspan="1">Price</th>
-															<th rowspan="1">Qty</th>
-															<th colspan="1">Subtotal</th>
+															<th rowspan="1">Tên sản phẩm</th>
+															<th colspan="1">Giá</th>
+															<th rowspan="1">SL</th>
+															<th colspan="1">Thành tiền</th>
 														</tr>
 													</thead>
 													<tbody>
 														<tr>
-															<td><h3 class="product-name">People of the book</h3></td>
-															<td><span class="cart-price"><span class="check-price">$155.00</span></span></td>
+															<td><h3 class="product-name">NHÀ GIẢ KIM (TÁI BẢN 2017)</h3></td>
+															<td><span class="cart-price"><span class="check-price">55,200 đ</span></span></td>
 															<td>1</td>
 															<!-- sub total starts here -->
-															<td><span class="cart-price"><span class="check-price">$155.00</span></span></td>
+															<td><span class="cart-price"><span class="check-price">55,200 đ</span></span></td>
 														</tr>
 														<tr>
-															<td><h3 class="product-name">The secret garden</h3></td>
-															<td><span class="cart-price"><span class="check-price">$222.00</span></span></td>
+															<td><h3 class="product-name">Đắc Nhân Tâm (Khổ Lớn)</h3></td>
+															<td><span class="cart-price"><span class="check-price">51,680 đ</span></span></td>
 															<td>1</td>
 															<!-- sub total starts here -->
-															<td><span class="cart-price"><span class="check-price">$222.00</span></span></td>
+															<td><span class="cart-price"><span class="check-price">51,680 đ</span></span></td>
 														</tr>
 													</tbody>
 													<tfoot>
 														<tr>
-															<td colspan="3">Subtotal</td>
-															<td><span class="check-price">$377.00</span></td>
+															<td colspan="3">Tạm tính</td>
+															<td><span class="check-price">106,880‬</span></td>
 														</tr>
 														<tr>
-															<td colspan="3">Shipping Handling (Flat Rate - Fixed)</td>
-															<td><span class="check-price">$10.00</span></td>
+															<td colspan="3">Phí vận chuyển</td>
+															<td><span class="check-price">20.000đ</span></td>
 														</tr>
 														<tr>
-															<td colspan="3"><strong>Grand Total</strong></td>
-															<td><strong><span class="check-price">$387.00</span></strong></td>
+															<td colspan="3"><strong>Tổng tiền</strong></td>
+															<td><strong><span class="check-price">126,880‬</span></strong></td>
 														</tr>
 													</tfoot>
 												</table>
 											</div>
 											<div id="checkout-review-submit">
 												<div class="cart-btn-3" id="review-buttons-container">
-													<p class="left">Forgot an Item? <a href="#">Edit Your Cart</a></p>
-													<button type="submit" title="Place Order" class="btn btn-default"><span>Place Order</span></button>
+													<p class="left">Quên một món đồ?  <a href="#">Chỉnh sửa giỏ hàng của bạn</a></p>
+													<button type="submit" title="Đặt hàng" class="btn btn-default"><span>Đặt hàng</span></button>
 												</div>
 											</div>
 										</div>
@@ -338,12 +338,13 @@
                     </div>
                     <div class="col-md-offset-1 col-md-3">
                         <div class="checkout-widget">
-                            <h2 class="widget-title">YOUR CHECKOUT PROGRESS</h2>
+                            <h2 class="widget-title">Vui lòng kiểm tra kỹ</h2>
                             <ul>
-								<li><a href="#"><i class="fa fa-minus"></i> Billing Address</a></li>
-								<li><a href="#"><i class="fa fa-minus"></i> Shipping Address</a></li>
-								<li><a href="#"><i class="fa fa-minus"></i> Shipping Method</a></li>
-								<li><a href="#"><i class="fa fa-minus"></i> Payment Method</a></li>
+								<li><a href="#"><i class="fa fa-minus"></i> Tài khoản đặt hàng</a></li>
+								<li><a href="#"><i class="fa fa-minus"></i> Địa chỉ nhận hàng</a></li>
+								<li><a href="#"><i class="fa fa-minus"></i> Phương thức thanh toán</a></li>
+								<li><a href="#"><i class="fa fa-minus"></i> Sản phẩm</a></li>
+								
 							</ul>
                         </div>
                     </div>
@@ -353,7 +354,7 @@
         <!-- Check Out Area End -->
 		<!-- Our Team Area Start -->
 		<div class="our-team-area">
-		    <h2 class="section-title">OUR WRITER</h2>
+		    <h2 class="section-title">Sản phẩm liên quan</h2>
 		    <div class="container">
 		        <div class="row">
 		        <div class="team-list indicator-style">

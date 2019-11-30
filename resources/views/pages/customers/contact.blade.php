@@ -17,9 +17,10 @@
 									<span><i class="fa fa-user-plus"></i></span>
 								</div>
 								<div class="info">
-									<h3>PHONE</h3>
-									<p>+(02)-12345-6789-55</p>
-									<p>+(05)-15689-5698-44</p>
+									<h3>Số Điện Thoại</h3>
+									<p>+(84)-82690-3960</p>
+									<p>+(84)-52297-0498</p>
+									{{-- <p>+(05)-15689-5698-44</p> --}}
 								</div>
 							</div>
 						</div>						
@@ -31,9 +32,9 @@
 									<span><i class="fa fa-map-marker"></i></span>
 								</div>
 								<div class="info">
-									<h3>ADDRESS</h3>
-									<p>Mhilara Street 205,</p>
-									<p>Roitan city, USA.</p>
+									<h3>Địa chỉ</h3>
+									<p>Ký túc xá B, Đại học Cần Thơ</p>
+									<p>Xuân Khánh, Cần Thơ</p>
 								</div>
 							</div>
 						</div>						
@@ -46,8 +47,8 @@
 								</div>
 								<div class="info">
 									<h3>E-MAIL</h3>
-									<p>info123@gmail.com</p>
-									<p>www.companyweb.com</p>
+									<p>minhnghia2311@gmail.com</p>
+									<p>www.whilien52.com</p>
 								</div>
 							</div>
 						</div>					
@@ -60,7 +61,7 @@
 		<div class="contact-form-area">
 			<div class="container">
 				<div class="about-title">
-					<h3>LEAVE A MESSAGE</h3>
+					<h3>GỬI TIN NHẮN CHO CHÚNG TÔI</h3>
 				</div>
 				<div class="row">
 					<div class="col-md-12">
@@ -68,16 +69,16 @@
 							<div class="row">
 								<div class="col-md-5">
 									<div class="contact-form-left">
-										<input type="text" placeholder="Your Name" name="name" id="name" />
-										<input type="email" placeholder="Your Email" name="email" id="email" />
-										<input type="text" placeholder="Your phone" name="phone" id="phone" />
+										<input type="text" placeholder="Họ tên" name="name" id="name" />
+										<input type="email" placeholder="Email" name="email" id="email" />
+										<input type="text" placeholder="Phone" name="phone" id="phone" />
 									</div>								
 								</div>
 								<div class="col-md-7">
 									<div class="contact-form-right">
 										<div class="input-message">
-											<textarea name="message" id="message" placeholder="Your Message"></textarea>
-											<input class="btn btn-default" type="submit" value="SEND" name="submit" id="submit">
+											<textarea name="message" id="message" placeholder="Nội dung"></textarea>
+											<input class="btn btn-default" type="submit" value="Gửi" name="submit" id="submit">
 										</div>
 									</div>
 								</div>

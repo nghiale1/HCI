@@ -8,33 +8,44 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
-                <h3 class="box-title">Book Table</h3>
+                <h3 class="box-title">Trang quản lý thành viên</h3>
                 <br>
-                <a href="{{route('book.create')}}" class="btn btn-success waves-effect waves-light m-r-10">Thêm sách</a>
-                <input type="submit" value="Tìm kiếm" style="float:right">
+                {{-- <a href="{{route('book.create')}}" class="btn btn-success waves-effect waves-light m-r-10"></a> --}}
+                <br><input type="submit" value="Tìm kiếm" style="float:right">
                 <input type="search" style="float:right;width:20%">
-                <br>
                 <br>
                 <br>
                 <div class="table-responsive">
                     <table class="table color-table primary-table" id='book_table'>
                         <thead>
                             <tr>
-                                <th>Mã sách:</th>
-                                <th>Tên sách:</th>
-                                <th>Giá thành:</th>
-                                <th>Giá khuyến mãi:</th>
-                                <th>Tác giả:</th>
-                                <th>Dịch giả:</th>
-                                <th>Nhà xuất bản:</th>
-                                <th>Nhà phát hành:</th>
-                                <th>Ngày xuất bản:</th>
-                                <th>Số lượng còn lại:</th>
+                                <th>Mã thành viên:</th>
+                                <th>Tên thành viên:</th>
+                                <th>Ngày tạo:</th>
+                                <th>Đơn hàng đã mua:</th>
+                                <th>Sản phẩm đã mua:</th>
+                                <th>Tổng tiền đã thanh toán:</th>
                                 <th>Tác vụ:</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($data as $item)
+                                <tr>
+                                        <td>01</td>
+                                        <td>Lê Minh Nghĩa</td>
+                                        <td>01/11/2019</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>126,880</td>
+    
+                                        <td>
+                                            <form  method="post" class="delete_form">
+                                                <a  class="btn btn-warning">Xem chi tiết</a>
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger">Chặn</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                            {{-- @foreach ($data as $item)
                                 <tr>
                                     <td>{{$item['book_id']}}</td>
                                     <td>{{$item['book_title']}}</td>
@@ -45,7 +56,6 @@
                                     <td>{{$item->publishing_houses['publishing_house_name']}}</td>
                                     <td>{{$item->book_companies['book_company_name']}}</td>
                                     <td>{{$item['book_releasedate']}}</td>
-                                    <td>100</td>
 
                                     <td>
                                         <form action="{{ route('book.destroy', $item->book_id) }}" method="post" class="delete_form">
@@ -55,7 +65,7 @@
                                         </form>
                                     </td>
                                 </tr>
-                            @endforeach
+                            @endforeach --}}
                         </tbody>
                     </table>
                 </div>

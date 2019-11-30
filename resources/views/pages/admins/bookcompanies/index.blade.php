@@ -1,5 +1,10 @@
 @extends('layouts.admin')
 @section('content')
+<style>
+    a.btn.btn-warning {
+        width: 62px;
+    }
+    </style>
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-6">

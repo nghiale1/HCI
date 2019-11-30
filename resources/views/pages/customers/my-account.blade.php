@@ -4,8 +4,8 @@
 		<div class="my-account-area section-padding">
 			<div class="container">
 				<div class="section-title2">
-					<h2>Procced to Checkout</h2>
-					<p>Welcome to your account. Here you can manage all of your personal information and orders.</p>
+					<h2>Thêm phương thức thanh toán</h2>
+					<p>Chào mừng bạn đến với tài khoản của bạn. Tại đây bạn có thể quản lý tất cả các thông tin cá nhân và đơn đặt hàng của bạn.</p>
 				</div>
 				<div class="row">
 					<div class="addresses-lists">
@@ -16,28 +16,28 @@
 										<h4 class="panel-title">
 											<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 												<i class="fa fa-building"></i>
-											   <span>Add my first address</span>
+											   <span>Thêm địa chỉ thanh toán</span>
 											</a>
 										</h4>
 									</div>
 									<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 										<div class="panel-body">
 											<div class="coupon-info">
-												<h1 class="heading-title">Your addresses </h1>
-												<p class="coupon-text">To add a new address, please fill out the form below.</p>
-												<p class="required">*Required field</p>
+												<h1 class="heading-title">Địa chỉ của bạn </h1>
+												<p class="coupon-text">Để thêm một địa chỉ mới, vui lòng điền vào mẫu dưới đây.</p>
+												<p class="required">*Các trường bắt buộc</p>
 												<form action="#">
 													<p class="form-row">
-														<input type="text" placeholder="Your Full Name *">
+														<input type="text" placeholder="Họ tên đầy đủ *">
 													</p>
 													<p class="form-row">
-														<input type="text" placeholder="Address *">
+														<input type="text" placeholder="Địa chỉ *">
 													</p>
 													<p class="form-row">
-														<input type="text" placeholder="City *" />
+														<input type="text" placeholder="Thành phố *" />
 													</p>
-													<div class="shop-select">
-														<label>Country <span class="required">*</span></label>
+													{{-- <div class="shop-select">
+														<label>Đất nước <span class="required">*</span></label>
 														<select>
 															<option value="volvo">Bangladesh</option>
 															<option value="saab">Algeria</option>
@@ -48,20 +48,20 @@
 															<option value="audi4">Colombia</option>
 															<option value="audi5">Dominican Republic</option>
 														</select> 										
-													</div>	
+													</div>	 --}}
 													<p class="form-row">
-														<input type="text" placeholder="Mobile phone *" />
+														<input type="text" placeholder="Số điện thoại *" />
 													</p>
-													<p class="required">** You must register at least one phone number.</p>
+													{{-- <p class="required">** You must register at least one phone number.</p>
 													<p class="form-row order-notes">
 														<textarea placeholder="Additional information"></textarea>
 													</p>
 													<p class="form-row">
 														<input type="text" placeholder="Please assign an address title for future reference. *" />
-													</p>
+													</p> --}}
 													<a title="Save" class="btn button button-small" href="index.html">
 														<span>
-															  Save
+															  Lưu
 															<i class="fa fa-chevron-right"></i>
 														</span>
 													</a>
@@ -75,23 +75,23 @@
 										<h4 class="panel-title">
 											<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
 												<i class="fa fa-list-ol"></i>
-												<span>My credit slips</span>
+												<span>Đơn hàng của tôi</span>
 											</a>
 										</h4>
 									</div>
 									<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 										<div class="panel-body">
 											<div class="coupon-info">
-												<h1 class="heading-title">Order history </h1>
-												<p class="coupon-text">Here are the orders you've placed since your account was created.</p>
+												<h1 class="heading-title">Đơn hàng hiện tại</h1>
+												{{-- <p class="coupon-text">Here are the orders you've placed since your account was created.</p> --}}
 												<div class="order-history">
-													<p class="alert">You have not placed any orders.</p>
+													<p class="alert">Bạn hiện không có đơn hàng nào.</p>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-								<div class="panel panel-default">
+								{{-- <div class="panel panel-default">
 									<div class="panel-heading" role="tab" id="headingThree">
 										<h4 class="panel-title">
 											<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -111,31 +111,31 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div> --}}
 								<div class="panel panel-default">
 									<div class="panel-heading" role="tab" id="headingFour">
 										<h4 class="panel-title">
 											<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
 												<i class="fa fa-building"></i>
-												<span>My personal information</span>
+												<span>Thông tin cá nhân</span>
 											</a>
 										</h4>
 									</div>
 									<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
 										<div class="panel-body">
 											<div class="coupon-info">
-												<h1 class="heading-title">Your personal information</h1>
-												<p class="coupon-text">Please be sure to update your personal information if it has changed.</p>
-												<p class="required">*Required field</p>
+												<h1 class="heading-title">Thông tin cá nhân của bạn</h1>
+												<p class="coupon-text">Vui lòng cập nhật thông tin cá nhân nếu bạn có thay đổi.</p>
+												<p class="required">*Bắt buộc</p>
 												<form action="#">
 													<div class="form-row">
-														<label><span class="required">*</span>Social title</label>
+														<label><span class="required">*</span>Giới tính</label>
 														<div class="radio-inline">
 															<label class="top">
 																<span class="checked">
 																	<input type="radio" /> 
 																</span>
-																Mr.
+																Nam
 															</label>
 														</div>
 														<div class="radio-inline">
@@ -143,18 +143,18 @@
 																<span class="checked">
 																	<input type="radio" /> 
 																</span>
-																Mrs.
+																Nữ
 															</label>
 														</div>
 													</div>
 													<p class="form-row">
-														<input type="text" placeholder="Your Full Name *" />
+														<input type="text" placeholder="Họ và tên *" />
 													</p>
 													<p class="form-row">
-														<input type="text" placeholder="E-mail address" />
+														<input type="text" placeholder="Địa chỉ email" />
 													</p>
 													<div class="country-select shop-select">
-														<label>Date of Birth</label>
+														<label>Ngày sinh</label>
 														<div class="row">
 															<div class="col-xs-4">
 																<select>
@@ -192,7 +192,7 @@
 															</div>
 															<div class="col-xs-4">
 																<select>
-																	<option>January</option>
+																	<option>Tháng Một</option>
 																	<option>February </option>
 																	<option>March </option>
 																	<option>April </option>
@@ -244,29 +244,29 @@
 														</div>										
 													</div>
 													<p class="form-row">
-														<input type="text" placeholder="Current Password" />
+														<input type="text" placeholder="Password cũ" />
 													</p>
 													<p class="form-row">
-														<input type="text" placeholder="New Password" />
+														<input type="text" placeholder="Password mới" />
 													</p>
 													<p class="form-row">
-														<input type="text" placeholder="Confirmation" />
+														<input type="text" placeholder="Xác nhận" />
 													</p>
 													<div class="checkbox">
 														<label>
 															<span><input type="checkbox" /></span>
-															Sign up for our newsletter!
+															Nhận thông báo từ chúng tối!
 														</label>
 													</div>
 													<div class="checkbox">
 														<label>
 															<span><input type="checkbox" /></span>
-															Receive special offers from our partners!
+															Nhận thông báo khi có khuyến mãi!
 														</label>
 													</div>
 													<a title="Save" class="btn button button-small" href="index.html">
 														<span>
-															  Save
+															  Lưu
 															<i class="fa fa-chevron-right"></i>
 														</span>
 													</a>
@@ -284,7 +284,7 @@
 										<h4 class="panel-title">
 											<a  href="wishlist.html">
 												<i class="fa fa-heart"></i>
-												<span>My wishlists</span>
+												<span>Danh sách yêu thích</span>
 											</a>
 										</h4>
 									</div>
@@ -294,7 +294,7 @@
 										<h4 class="panel-title">
 											<a  href="cart.html">
 												<i class="fa fa-list-ol"></i>
-												<span>Order history and details</span>
+												<span>Đơn hàng đã mua</span>
 											</a>
 										</h4>
 									</div>
@@ -309,7 +309,7 @@
 							<a href="index.html" class="btn button button-small" title="Home">
 								<span>
 									<i class="fa fa-chevron-left"></i>
-									  Home
+									  Trở về
 								</span>
 							</a>
 						</div>

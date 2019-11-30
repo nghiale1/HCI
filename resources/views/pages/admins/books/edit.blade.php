@@ -51,6 +51,8 @@ button, input, select, textarea {
                 <div class="col-sm-2">
                     <div>Giá</div>
                     <input type="number"  name="book_price" id="book_price" placeholder=" VNĐ" value="{{$book->book_price}}">
+                    <div>Số lượng</div>
+                    <input type="number"  name="book_price" id="book_price" placeholder=" " value="{{$book->book_price}}">
                     <div>Khuyến mãi (%)</div>
                     <input type="number"  name="sale_price" id="sale_price" placeholder=" %" value="{{$book->sale_price}}">
                     <div>Ngày phát hành</div>
@@ -99,11 +101,11 @@ button, input, select, textarea {
             <div class="row">
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Lưu</button>
                         
                     </div> 
                 
-                </div><a href="{{route('book.index')}}" class="btn btn-default">Back</a>
+                </div><a href="{{route('book.index')}}" class="btn btn-default">Trở lại</a>
             </div>
                
         {{-- </form> --}}

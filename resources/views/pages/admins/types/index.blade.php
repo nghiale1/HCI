@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-6">
-                <h3 class="box-title">Type Table</h3>
+                <h3 class="box-title">Thể loại sách</h3>
                 <br>
                 <form data-toggle="validator" novalidate="true" action="{{route('type.create.submit')}}" method="POST">
                     @csrf
@@ -12,7 +12,7 @@
                             <h4>Thêm loại sách</h4>
                             <input type="text" name="type_name" id="type_name" />
 
-                            <button class="btn btn-success" type="submit">Submit</button>
+                            <button class="btn btn-success" type="submit">Tạo</button>
                 </form>
                 <br>
                 <br>
@@ -22,7 +22,7 @@
                         <thead>
                             <tr>
                                 <th>Loại sách:</th>
-                                <th>Action</th>
+                                <th>Tác vụ</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -31,10 +31,10 @@
                                     <td>{{$item['type_name']}}</td>
                                     <td>
                                         <form action="{{ route('type.destroy', $item->type_id) }}" method="post" class="delete_form">
-                                            <a href="{{ action('Master\CategoryController@add_render',$item->type_id) }}" class="btn btn-success">Add Category</a>
-                                            <a href="{{ action('Master\BookCompanyController@edit',$item->type_id) }}" class="btn btn-warning">Edit</a>
+                                            <a href="{{ action('Master\CategoryController@add_render',$item->type_id) }}" class="btn btn-success">Thêm chuyên mục</a>
+                                            <a href="{{ action('Master\BookCompanyController@edit',$item->type_id) }}" class="btn btn-warning">Sửa</a>
                                             @csrf
-                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                            <button type="submit" class="btn btn-danger">Xóa</button>
                                         </form>
                                     </td>
                                 </tr>

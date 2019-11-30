@@ -41,6 +41,12 @@
         .layer-4{
             margin-top: 22px;
         }  
+        .widget-buttom input {
+    width: 49%;
+}
+.section-padding {
+    padding: 60px 0;
+}
         .layer-4 .title-4 input {
             border: 0.5px solid #ddd;
             border-bottom-left-radius: 30px;

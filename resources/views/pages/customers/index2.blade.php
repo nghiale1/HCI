@@ -79,6 +79,7 @@ span.p-sale-label.discount-l-fs {
     max-height: 20px;
 }
 </style>
+
         <!-- Shop Area Start -->
         <div class="shopping-area section-padding">
             <div class="container">
@@ -107,15 +108,15 @@ span.p-sale-label.discount-l-fs {
                                     </ul>
                                 </aside> 
                                 <aside class="widget shop-filter">
-                                    <h2 class="sidebar-title text-center">PRICE SLIDER</h2>
+                                    <h2 class="sidebar-title text-center">Mức giá:</h2>
                                     <div class="info-widget">
                                         <div class="price-filter">
                                             <div id="slider-range"></div>
                                             <div class="price-slider-amount">
                                                 <input type="text" id="amount" name="price"  placeholder="Add Your Price" />
                                                 <div class="widget-buttom">
-                                                    <input type="submit"  value="Filter"/>  
-                                                    <input type="reset" value="CLEAR" />
+                                                    <input type="submit"  value="Lọc"/>  
+                                                    <input type="reset" value="Làm mới" />
                                                 </div>
                                             </div>
                                         </div>
@@ -124,25 +125,25 @@ span.p-sale-label.discount-l-fs {
                             </div>
                             <div class="shop-widget-bottom">
                                 <aside class="widget widget-tag">
-                                    <h2 class="sidebar-title">POPULAR TAG</h2>
+                                    <h2 class="sidebar-title">Từ khóa phổ biến</h2>
                                     <ul class="tag-list">
                                         <li>
-                                            <a href="#">e-book</a>
+                                            <a href="#">Nhà giả kim</a>
                                         </li>
                                         <li>
-                                            <a href="#">writer</a>
+                                            <a href="#">Harry Potter</a>
                                         </li>
                                         <li>
-                                            <a href="#">book’s</a>
+                                            <a href="#">Adam Khoo</a>
                                         </li>
                                         <li>
-                                            <a href="#">eassy</a>
+                                            <a href="#">Love, Rosie</a>
                                         </li>
                                         <li>
-                                            <a href="#">nice</a>
+                                            <a href="#">Mắt biếc</a>
                                         </li>
                                         <li>
-                                            <a href="#">author</a>
+                                            <a href="#">Your name</a>
                                         </li>
                                     </ul>
                                 </aside>
@@ -174,35 +175,36 @@ span.p-sale-label.discount-l-fs {
                         </div>
                     </div>
                     <div class="col-md-9 col-sm-9 col-xs-12">
+
                         <div class="shop-tab-area">
+                                @include('layouts.customer.slider')
                             <div class="shop-tab-list">
                                 <div class="shop-tab-pill pull-left">
                                     <ul>
-                                        <li class="active" id="left"><a data-toggle="pill" href="#home"><i class="fa fa-th"></i><span>Grid</span></a></li>
-                                        <li><a data-toggle="pill" href="#menu1"><i class="fa fa-th-list"></i><span>List</span></a></li>
+                                        <li class="active" id="left"><a data-toggle="pill" href="#home"><i class="fa fa-th"></i><span>Lưới</span></a></li>
+                                        <li><a data-toggle="pill" href="#menu1"><i class="fa fa-th-list"></i><span>Danh sách</span></a></li>
                                     </ul>
                                 </div>
                                 <div class="shop-tab-pill pull-right">
                                     <ul>
                                         <li class="product-size-deatils">
                                             <div class="show-label">
-                                                <label>Show : </label>
+                                                <label>Hiển thị : </label>
                                                 <select>
-                                                    <option value="10" selected="selected">10</option>
-                                                    <option value="09">09</option>
-                                                    <option value="08">08</option>
-                                                    <option value="07">07</option>
-                                                    <option value="06">06</option>
+                                                    <option value="10" selected="selected">20</option>
+                                                    <option value="09">30</option>
+                                                    <option value="08">40</option>
+                                                    <option value="07">50</option>
                                                 </select>
                                             </div>
                                         </li>
                                         <li class="product-size-deatils">
                                             <div class="show-label">
-                                                <label><i class="fa fa-sort-amount-asc"></i>Sort by : </label>
+                                                <label><i class="fa fa-sort-amount-asc"></i>Ưu tiên xem: </label>
                                                 <select>
-                                                    <option value="position" selected="selected">Position</option>
-                                                    <option value="Name">Name</option>
-                                                    <option value="Price">Price</option>
+                                                    <option value="position" selected="selected">Sách mới</option>
+                                                    <option value="Name">Tên</option>
+                                                    <option value="Price">Giá</option>
                                                 </select>
                                             </div>
                                         </li>	
@@ -236,7 +238,7 @@ span.p-sale-label.discount-l-fs {
 																<a href="#" title="Add to Wishlist">
 																	<i class="fa fa-heart-o"></i>
 																</a>
-																<a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
+																<a href="#" title="Xem nhanh" data-toggle="modal" data-target="#productModal">
 																	<i class="fa fa-compress"></i>
 																</a>
 															</div>
@@ -291,10 +293,10 @@ span.p-sale-label.discount-l-fs {
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                     </div>
-                                                    <p>Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!</p>
+                                                    <p>Nhà giả kim là một cuốn sách được xuất bản lần đầu ở Brasil năm 1988 và là cuốn sách nổi tiếng nhất của nhà văn Paulo Coelho. Nó được dịch ra 67 ngôn ngữ và bán ra tới 65 triệu bản, trở thành một trong những quyển sách bán chạy nhất mọi thời đại. Đây là một câu chuyện thúc giục độc giả theo đuổi giấc mơ của mình.</p>
                                                     <div class="availability">
-                                                        <span>In stock</span>
-                                                        <span><a href="cart.html">Add to cart</a></span>
+                                                        <span>Còn hành</span>
+                                                        <span><a href="cart.html">Thêm vào giỏ hàng</a></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -310,137 +312,7 @@ span.p-sale-label.discount-l-fs {
             </div>
         </div>
         <!-- Shop Area End -->
-		<!-- Footer Area Start -->
-		<footer>
-		    <div class="footer-top-area">
-		        <div class="container">
-		            <div class="row">
-		                <div class="col-md-3 col-sm-8">
-		                    <div class="footer-left">
-		                        <a href="index.html">
-		                            <img src="img/logo-2.png" alt="">
-		                        </a>
-		                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-		                        <ul class="footer-contact">
-		                            <li>
-		                                <i class="flaticon-location"></i>
-		                                450 fifth Avenue, 34th floor. NYC
-		                            </li>
-		                            <li>
-		                                <i class="flaticon-technology"></i>
-		                                (+800) 123 4567 890
-		                            </li>
-		                            <li>
-		                                <i class="flaticon-web"></i>
-		                                info@bookstore.com
-		                            </li>
-		                        </ul>
-		                    </div>
-		                </div>
-		                <div class="col-md-2 col-sm-4">
-		                    <div class="single-footer">
-		                        <h2 class="footer-title">Information</h2>
-		                        <ul class="footer-list">
-		                            <li><a href="about.html">About Us</a></li>
-		                            <li><a href="#">Delivery Information</a></li>
-		                            <li><a href="#">Privacy & Policy</a></li>
-		                            <li><a href="#">Terms & Conditions</a></li>
-		                            <li><a href="#">Manufactures</a></li>
-		                        </ul>
-		                    </div>
-		                </div>
-		                <div class="col-md-2 hidden-sm">
-		                    <div class="single-footer">
-		                        <h2 class="footer-title">My Account</h2>
-		                        <ul class="footer-list">
-		                            <li><a href="my-account.html">My Account</a></li>
-		                            <li><a href="account.html">Login</a></li>
-		                            <li><a href="cart.html">My Cart</a></li>
-		                            <li><a href="wishlist.html">Wishlist</a></li>
-		                            <li><a href="checkout.html">Checkout</a></li>
-		                        </ul>
-		                    </div>
-		                </div>
-		                <div class="col-md-2 hidden-sm">
-		                    <div class="single-footer">
-		                        <h2 class="footer-title">Shop</h2>
-		                        <ul class="footer-list">
-		                            <li><a href="#">Orders & Returns</a></li>
-		                            <li><a href="#">Search Terms</a></li>
-		                            <li><a href="#">Advance Search</a></li>
-		                            <li><a href="#">Affiliates</a></li>
-		                            <li><a href="#">Group Sales</a></li>
-		                        </ul>
-		                    </div>
-		                </div>
-		                <div class="col-md-3 col-sm-8">
-		                    <div class="single-footer footer-newsletter">
-		                        <h2 class="footer-title">Our Newsletter</h2>
-		                        <p>Consectetur adipisicing elit se do eiusm od tempor incididunt ut labore et dolore magnas aliqua.</p>
-		                        <form action="#" method="post">
-		                            <div>
-		                                <input type="text" placeholder="email address">
-		                            </div>
-		                            <button class="btn btn-search btn-small" type="submit">SUBSCRIBE</button>
-		                            <i class="flaticon-networking"></i>
-		                        </form>
-		                        <ul class="social-icon">
-		                            <li>
-		                                <a href="#">
-		                                    <i class="flaticon-social"></i>
-		                                </a>
-		                            </li>
-		                            <li>
-		                                <a href="#">
-		                                    <i class="flaticon-social-1"></i>
-		                                </a>
-		                            </li>
-		                            <li>
-		                                <a href="#">
-		                                    <i class="flaticon-social-2"></i>
-		                                </a>
-		                            </li>
-		                            <li>
-		                                <a href="#">
-		                                    <i class="flaticon-video"></i>
-		                                </a>
-		                            </li>
-		                        </ul>
-		                    </div>
-		                </div>
-		                <div class="col-md-2 col-sm-4 visible-sm">
-		                    <div class="single-footer">
-		                        <h2 class="footer-title">Shop</h2>
-		                        <ul class="footer-list">
-		                            <li><a href="#">Orders & Returns</a></li>
-		                            <li><a href="#">Search Terms</a></li>
-		                            <li><a href="#">Advance Search</a></li>
-		                            <li><a href="#">Affiliates</a></li>
-		                            <li><a href="#">Group Sales</a></li>
-		                        </ul>
-		                    </div>
-		                </div>
-		            </div>
-		        </div>
-		    </div>
-		    <div class="footer-bottom">
-		        <div class="container">
-		            <div class="row">
-		                <div class="col-md-6">
-                            <div class="footer-bottom-left pull-left">
-                                <p>Copyright &copy; 2016 <span><a href="#">DevItems</a></span>. All Right Reserved.</p>
-                            </div>
-		                </div>
-		                <div class="col-md-6">
-		                    <div class="footer-bottom-right pull-right">
-		                        <img src="img/paypal.png" alt="">
-		                    </div>
-		                </div>
-		            </div>
-		        </div>
-		    </div>
-		</footer>
-		<!-- Footer Area End -->        
+   
 		<!--Quickview Product Start -->
         <div id="quickview-wrapper">
             <!-- Modal -->

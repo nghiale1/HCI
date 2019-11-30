@@ -22,29 +22,29 @@ button, input, select, textarea {
 
 <div id="page-wrapper">
     <div class="container-fluid">
-        <form data-toggle="validator" novalidate="true" action="{{route('book.create.submit')}}" method="POST" enctype="multipart/form-data">
+        <form data-toggle="validator" novalidate="true"  method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
-                    {{-- <input type="file" accept="image/*" onchange="loadFile(event)">
-                    <img id="output"/> --}}
+                    <input type="file" accept="image/*" onchange="loadFile(event)">
+                    <img id="output"/>
                 
                 
-                <div class="col-sm-10">
-                    <img id="image" alt="Chọn hình đại diện" width="100" height="100" />
+                <div class="col-sm-12">
+                    {{-- <img id="image" alt="Chọn hình đại diện" width="100" height="100" />
                     
                     <input type="file" name="avatar" id="avatar"
                     onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])">
-                    
+                     --}}
 
                     {{-- <div class="img"></div> --}}
                     {{-- <img id="hinh" alt="your photo" width="100" height="100" /> --}}
-                    <input type="file" name="photos[]" id="photos[]" multiple
-                    onchange=show()>
-                    <input type="text"  name="book_title" id="book_title" placeholder=" Tên sách"><br><br>
+                    {{-- <input type="file" name="photos[]" id="photos[]" multiple --}}
+                    {{-- onchange=show()> --}}
+                    <input type="text"  name="book_title" id="book_title" placeholder=" Tên sự kiện"><br><br>
                     <textarea name="book_description" class="form-control " id="book_description"></textarea>
                 </div>
             
-                <div class="col-sm-2">
+                {{-- <div class="col-sm-2">
                     
                         
                                     <div>Giá</div>
@@ -96,7 +96,7 @@ button, input, select, textarea {
                                     </select>      
                                               
                              
-                    </div>
+                    </div> --}}
                     
              
             {{-- <div class="form-group col-md-12"> --}}

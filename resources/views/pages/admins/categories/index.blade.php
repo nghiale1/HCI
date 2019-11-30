@@ -1,9 +1,14 @@
 @extends('layouts.admin')
 @section('content')
+<style>
+    a.btn.btn-warning {
+        width: 62px;
+    }
+    </style>
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-6">
-                <h3 class="box-title">Category Table</h3>
+                <h3 class="box-title">Hạng mục sách</h3>
                 <br>
                 <br>
                 <a href="{{route('category.create')}}" class="btn btn-success waves-effect waves-light m-r-10">Thêm hạng mục sách</a>
@@ -15,7 +20,7 @@
                             <tr>
                                 <th>Hạng mục sách:</th>
                                 <th>Loại sách:</th>
-                                <th>Action</th>
+                                <th>Tác vụ:</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -25,10 +30,10 @@
                                     <td>{{$item->types['type_name']}}</td>
                                     <td>
                                         <form action="{{ route('category.destroy', $item->category_id) }}" method="post" class="delete_form">
-                                            <a href="{{ action('Master\GenreController@create_render',$item['category_id'] )}}" class="btn btn-success">Create Genre</a>
-                                            <a href="{{ action('Master\CategoryController@edit',$item->category_id) }}" class="btn btn-warning">Edit</a>
+                                            <a href="{{ action('Master\GenreController@create_render',$item['category_id'] )}}" class="btn btn-success">Thêm mục con</a>
+                                            <a href="{{ action('Master\CategoryController@edit',$item->category_id) }}" class="btn btn-warning">Sửa</a>
                                             @csrf
-                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                            <button type="submit" class="btn btn-danger">Xóa</button>
                                         </form>
                                     </td>
                                 </tr>
