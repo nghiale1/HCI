@@ -79,6 +79,7 @@ span.p-sale-label.discount-l-fs {
     max-height: 20px;
 }
 </style>
+
         <!-- Shop Area Start -->
         <div class="shopping-area section-padding">
             <div class="container">
@@ -174,7 +175,9 @@ span.p-sale-label.discount-l-fs {
                         </div>
                     </div>
                     <div class="col-md-9 col-sm-9 col-xs-12">
+
                         <div class="shop-tab-area">
+                                @include('layouts.customer.slider')
                             <div class="shop-tab-list">
                                 <div class="shop-tab-pill pull-left">
                                     <ul>

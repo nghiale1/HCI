@@ -12,6 +12,8 @@ a.btn.btn-warning {
                 <br>
                 <a href="{{route('author.create')}}" class="btn btn-success waves-effect waves-light m-r-10">Thêm tác giả</a>
                 <br>
+                <input type="submit" value="Tìm kiếm" style="float:right">
+                <input type="search" style="float:right;width:20%">
                 <br>
                 <br>
                 <div class="table-responsive">

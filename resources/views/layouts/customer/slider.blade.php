@@ -2,18 +2,15 @@
 		<div class="slider-area">
 			<div class="bend niceties preview-1">
 				<div id="ensign-nivoslider" class="slides">	
-					<img src="{{asset('img/slider/162441.jpg')}}" alt="" title="#slider-direction-1"  />
-					{{-- <img src="{{asset('img/slider/photo-1507842217343-583bb7270b66.jpg')}}" alt="" title="#slider-direction-2"  /> --}}
-					{{-- <img src="{{asset('img/slider/books-book-pages-read-literature-159866.jpg')}}" alt="" title="#slider-direction-3"  /> --}}
-
-
-
-
+					<img src="{{asset('img/banner/black-friday-920x420.jpg')}}" alt="" title="#slider-direction-1"  />
+					<img src="{{asset('img/banner/Trang_LTD_920x420_3.jpg')}}" alt="" title="#slider-direction-2"  />
+					<img src="{{asset('img/banner/partner-rs-920x420.jpg')}}" alt="" title="#slider-direction-3"  />
+					<img src="{{asset('img/banner/TTMBanner920x420.jpg')}}" alt="" title="#slider-direction-4"  />
 				</div>
 				<!-- direction 1 -->
 				<div id="slider-direction-1" class="text-center slider-direction">
 					<!-- layer 1 -->
-					<div class="layer-1">
+					{{-- <div class="layer-1">
 						<h2 class="title-1">SÁCH LÀ NGƯỜI BẠN TỐT NHẤT</h2>
 					</div>
 					<!-- layer 2 -->
@@ -30,7 +27,7 @@
                             <input type="text" placeholder="Search for anything about book">
                             <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
-					</div>
+					</div> --}}
 				</div>
 				<!-- direction 2 -->
 				{{-- <div id="slider-direction-2" class="slider-direction">

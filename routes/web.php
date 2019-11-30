@@ -39,6 +39,28 @@ Route::group(['middleware' => ['checklogin']], function () {
     Route::get('/wishlist', "Master\CustomerController@wishlist")->name('customer/wishlist');
     Route::get('/single-product/{book_id}', "Master\CustomerController@single")->name('customer/single');
     
+    Route::get('/member', function () {
+        return view('pages.admins.members.index');
+    })->name('statistic');
+    Route::get('/member/detail/1', function () {
+        return view('pages.admins.members.detail');
+    })->name('statistic');
+
+    Route::get('/order', function () {
+        return view('pages.admins.orders.index');
+    });
+    Route::get('/code', function () {
+        return view('pages.admins.code.index');
+    });
+    Route::get('/code/create', function () {
+        return view('pages.admins.code.create');
+    });
+
+    Route::get('/event/create', function () {
+        return view('pages.admins.events.create');
+    });
+
+
     Route::get('/404', function () {
         return view('pages.customers.404');
         // Route::get('/', "Master\CustomerController@index")->name('customer/index');
@@ -47,6 +69,7 @@ Route::group(['middleware' => ['checklogin']], function () {
     Route::get('/statistic', function () {
         return view('pages.admins.statistic.index');
     })->name('statistic');
+
     Route::get('/404', function () {
         return view('pages.admins.404.index');
     })->name('404');
