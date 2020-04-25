@@ -58,7 +58,7 @@ class BookController extends Controller
     public function create_submit(Request $request)
     {
         // dd($request->file('photos'));
-        // dd($request);
+        dd($request);
         //kiểm tra có tồn tại myFikle ?
         if ($request->hasFile('avatar')) {
             $sale_id = Sale::insertGetId(
